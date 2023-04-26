@@ -1,0 +1,94 @@
+
+  <section class="news-latest-posts" style="margin-top: 30px;">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+
+        <div class="col-lg-8 col-md-12 order-lg-8" style="background-color:white;border-radius:5px;margin-top:8px;">
+            <div class="section-title" style="padding:8px;margin-bottom: -2px;">
+                <h2 class="mb-0" onclick="window.location.href = '/health'" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">Spot Lights</h2> 
+                <a href="/recommended-for-you" class="rightLink" style="float: right;width: 9px;height: 14px;background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+            </div>  
+            <div class="row" style="margin-top: 10px;">
+            {{#each spotlight}}
+
+        <div class="col-lg-4 col-md-4 order-lg-4" style="margin-bottom: 8px;">
+          <div class="col" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-ing card-img-top" src="{{post_image}}" style="height: 200px;">
+              <div class="card-body" style="padding:10px;">
+                <h3 class="card-text" style="font-size: 15px;">{{post_name}}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        </div>
+        </div>
+
+        
+
+
+      
+  {{!-- End of Spot Lights --}}
+
+
+
+
+
+
+        
+
+
+
+
+        
+        
+        {{!-- Sidebar Second Row --}}
+        <div class="col-lg-4 col-md-12 order-lg-4" style="margin-top:8px;">
+
+          
+          
+          <div class="col mb-2" style="background-color:white;border-radius:10px;">
+          <div class="col-lg-12">
+            <div class="section-title" style="padding:8px;margin-bottom: -2px;">
+              <h6 class="mb-0" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">Trending</h6> 
+              
+              
+              <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
+        width: 9px;
+        height: 14px;
+        background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+              </div>
+          </div>
+          {{#each latestnews}}
+          <div class="blog-post post-style-04" style="display:flex;padding:5px;border-bottom:1px solid #d1d8e6;margin-bottom:5px">
+            <div class="blog-image" style="min-width:70px;width:0%;margin-right:10px"> <img class="img-fluid bg-overlay-black-93" src="{{post_image}}" alt="" style="width:70px;height:70px"> </div>
+            <div class="blog-post-details"> 
+              <h6 class="blog-title" style="color:black;font-size:15px;font-family:'Lato,sans-serif'"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+              <div class="blog-post-meta">
+                <div class="blog-post-time" style="font-size: 12px;margin-top:-8px;font-family:'Lato,sans-serif'"> <a href="/{{post_category}}/{{post_url}}">{{substr "12" update_date}}</a> </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}        
+
+      </div>
+
+
+
+
+
+         
+
+            
+            <br>
+
+          
+        </div>
+    </div>
+    </div>
+  </section>
+  {{!-- End of Tripura News & Article --}}

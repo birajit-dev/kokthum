@@ -1,0 +1,25 @@
+.news{
+    h1{
+        text-align: center;
+    }
+    .img{
+        text-align: center;
+      img{
+        max-width: 100%;
+      }
+    }
+}
+
+.social-btn  {
+    a{
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    font-family: Verdana, Arial;
+    background: #032a63;
+    color:#f8f8f8;
+    }
+    a:hover{
+        cursor: pointer;
+    } 
+}

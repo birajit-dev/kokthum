@@ -1,0 +1,844 @@
+ <section class="" style="background-color: white;margin-bottom:-20px">
+    <div class="container" style="max-width: 1130px;">
+      <div class="col-md-12">
+            <div class="d-flex justify-content-between align-items-center breaking-news bg-white">
+                <div class="d-flex flex-row flex-grow-1 flex-fill justify-content-center bg-danger py-2 text-white px-1 news" style="width: 170px;"><span class="d-flex align-items-center" style="font-weight: 700;">Breaking News</span></div>
+                <div class="">
+                  
+                </div>
+                <marquee class="news-scroll" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" style="background-color: black; height:40px"> 
+                      {{#each bnews}}
+                      <a href="#" style="color: white;"> {{breaking_title}} </a> <span class="dot"></span> 
+                      {{/each}} 
+                </marquee>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+
+
+  {{!-- Top News & Latest News --}}
+  <section class="news-latest-posts">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">    
+        <div class="col-lg-7">
+          {{#each topheadlines}}
+          <div class="blog-post post-style-01" onclick="window.location.href = '/topnews/headlines/tripura'">
+            <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt="" style="height: 420px;"> </div>
+            <div class="blog-post-details"> <span class="badge badge-large bg-primary">Top News</span>
+              <h3 class="blog-title"><a href="/topnews/headlines/tripura">{{post_name}}</a></h3>
+              <div class="blog-post-meta">
+                <div class="blog-post-time"> <a href="/topnews/headlines/tripura"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="col-md-5 col-lg-12 col-xl-5" style="background-color: black;border-radius:10px;">
+          <div class="col-lg-12">
+            <div class="section-title" style="padding:8px;">
+              <h6 class="mb-0" style="color:white;font-weight:800;font-size:20px;font-family:'Lato Black',sans-serif">Latest News</h6> 
+              
+              
+              <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
+        width: 9px;
+        height: 14px;
+        background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+              </div>
+          </div>
+          {{#each latestnews}}
+          <div class="blog-post post-style-04" style="display:flex">
+            <div class="blog-image" style="margin-right:10px;width:1%;"> <img class="img-fluid bg-overlay-black-93" src="{{post_image}}" alt="" style="width:120px"> </div>
+            <div class="blog-post-details"> 
+              <h6 class="blog-title" style="color: white;"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+              <div class="blog-post-meta">
+                <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}        
+
+      </div>
+    </div>
+  </section>
+  {{!-- End of Top News & Latest News --}}
+
+
+  
+  <section class="news-latest-posts" style="margin-top: 30px;">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        
+          <div class="col-lg-8 col-md-12 order-lg-8" style="background-color:white;border-radius:5px;">
+            <div class="section-title" style="padding:8px;margin-bottom: -2px;">
+              <h2 class="mb-0" onclick="window.location.href = '/tripura'" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">
+                Tripura News
+              </h2> 
+              <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
+        width: 9px;
+        height: 14px;
+        background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+            </div>
+              {{#each tripuranews}}
+                <div class="blog-post post-style-04" style="box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;padding:5px;">
+                  <div class="blog-image"> 
+                    <img class="img-fluid" src="{{post_image}}" alt="">
+                  </div>
+                  <div class="blog-post-details"> 
+                    <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                        <div class="blog-post-meta">
+                          <div class="blog-post-time" style="font-size:12px"> 
+                            <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a>
+                          </div>
+                        </div>
+                  </div>
+                </div>    
+              {{/each}}
+          </div>
+
+
+          
+
+
+        <div class="col-lg-4 col-md-12 order-lg-4">
+
+          <div class="col mb-2" style="background-color:white;border-radius:10px;">
+          <div class="col-lg-12">
+            <div class="section-title" style="padding:8px;margin-bottom: -2px;">
+              <h6 class="mb-0" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">Recommended For You</h6> 
+              
+              
+              <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
+        width: 9px;
+        height: 14px;
+        background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+              </div>
+          </div>
+          {{#each latestnews}}
+          <div class="blog-post post-style-04" style="display:flex;padding:5px;border-bottom:1px solid #d1d8e6;margin-bottom:5px">
+            <div class="blog-image" style="min-width:70px;width:0%;margin-right:10px"> <img class="img-fluid bg-overlay-black-93" src="{{post_image}}" alt="" style="width:70px;height:70px"> </div>
+            <div class="blog-post-details"> 
+              <h6 class="blog-title" style="color:black;font-size:15px;font-family:'Lato,sans-serif'"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+              <div class="blog-post-meta">
+                <div class="blog-post-time" style="font-size: 12px;margin-top:-8px;font-family:'Lato,sans-serif'"> <a href="/{{post_category}}/{{post_url}}">{{substr "12" update_date}}</a> </div>
+              </div>
+            </div>
+          </div>
+          {{/each}}        
+
+      </div>
+
+
+          <div class="col mb-2">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-ing card-img-top" src="/images/ongc_ads.jpg" style="">
+              <div class="card-body" style="padding:10px;">
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+         
+
+            <div class="widget">
+              <h6 class="widget-title" style="font-family: 'Times New Roman', Times, serif;">Follow Us On Social</h6>
+              <div class="follow-style-04">
+                <div class="social">
+                  <ul class="mb-0">
+                    <li class="facebook">
+                      <div class="social-icon">
+                        <a href="https://www.facebook.com/profile.php?id=100086101862124"> <i class="fab fa-facebook-f"></i>Facebook</a>
+                      </div>
+                    </li>
+                    <li class="twitter">
+                      <div class="social-icon">
+                        <a href="https://twitter.com/HeraldNortheast"><i class="fa-brands fa-twitter"></i>Twitter</a>
+                      </div>   
+                    </li>
+                    <li class="youtube">
+                      <div class="social-icon">
+                        <a href="https://www.youtube.com/@northeastherald5966"><i class="fa-brands fa-youtube"></i>Youtube</a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <br>
+
+          
+        </div>
+    </div>
+    </div>
+  </section>
+  {{!-- End of Tripura News & Article --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ {{!-- Spot Lights --}}
+  <section class="space-sm-ptb" >
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        
+        
+            <div class="col-lg-12" style="background-color:white;border-radius:10px;">
+              <div class="section-title" style="padding:8px;margin-bottom: -2px;">
+                <h6 class="mb-0" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">Article</h6> 
+                <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
+                width: 9px;
+                height: 14px;
+                background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
+              </div>
+
+
+          <div class="row" style="margin-top:10px;">
+        {{#each article}}
+
+        <div class="col-md-4" style="margin-bottom: 8px;">
+          <div class="col" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
+            <div class="card shadow-sm">
+              <img class="bd-placeholder-ing card-img-top" src="{{post_image}}" style="height: 200px;">
+              <div class="card-body" style="padding:10px;">
+                <h3 class="card-text" style="font-size: 15px;">{{post_name}}</h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        </div>
+
+
+      </div>
+    </div>
+    </div>
+  </section>
+  {{!-- End of Spot Lights --}}
+  
+  {{>check}}
+
+
+  {{!-- Cricket Score --}}
+  <section class="space-sm-ptb mb-4">
+    <div class="container" style="max-width: 1130px;">
+ 
+           <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/api/v1/album'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>Daily News Photo Album</h2> </div>
+            <div class="live-score-slider">
+              <div class="row">
+                <div class="col-lg-12" style="padding: 2%;background-color:#032a63">
+                  <div class="owl-carousel owl-loaded owl-drag arrow-styel-04" data-nav-dots="false" data-nav-arrow="true" data-items="1" data-xl-items="1" data-lg-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-autoheight="true" data-autoplay="false">
+                    
+
+                     <!-- item-01 -->
+                    {{#each gallery}}
+                    <div class="item" onclick="window.location.href = '/photo/neh/gallery/{{gallery_url}}'">
+                      <div class="sport-tournament">
+                        <div class="tournament-details">
+                          <div class="">
+                          <img src="https://northeastherald.sfo3.digitaloceanspaces.com/{{this.gallery_path.[0]}}" style="height:500px;">
+                          </div>
+                          <div class="">
+                            <h4 style="text-align: center;background-color:gray;color:white;font-size:20px;">{{gallery_title}}</h4>
+                          </div>
+                           </div>       
+                      </div>
+                    </div>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </section>
+  {{!-- End of Cricket Score --}}
+
+
+
+
+{{!-- 
+  <section class="space-sm-ptb mb-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="live-score">
+            <div class="live-score-left">
+              <div class="title"> LIVE
+                <br>SCORE <span class="live-btn"> </span> </div>
+              <div class="sport-icon"> <img class="img-fluid" src="images/news/sports/sport-icon.png" alt=""> </div>
+            </div>
+            <div class="live-score-slider">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="owl-carousel owl-loaded owl-drag arrow-styel-04" data-nav-dots="false" data-nav-arrow="true" data-items="1" data-xl-items="1" data-lg-items="1" data-md-items="1" data-sm-items="1" data-xs-items="1" data-xx-items="1" data-autoheight="true" data-autoplay="false">
+                    
+                    
+                    <!-- item-01 -->
+                    <div class="item">
+                      <div class="sport-tournament">
+                        <div class="tournament-details"> <span class="tournament-name">ICC Women’s Cricket Worls Cup</span> <span class="tournament-match">Match 15</span> <span class="tournament-date">16 March,Wed</span> <span class="tournament-venue">Bay Oval,Mount Maunganui</span> </div>
+                        <div class="tournament-score">
+                          <div class="team-01 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/06.jpg" alt="">
+                            <span class="team-name">IN-W</span> </span> <span class="team-score">234/10</span> <span class="team-overs">(36.2)RR 3.68</span> </div> <span class="team-vs">V/S</span>
+                          <div class="team-02 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/02.jpg" alt="">
+                            <span class="team-name">EN-W</span> </span> <span class="team-score">150/4</span> <span class="team-overs">(27.1)RR 4.15</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- item-02 -->
+
+
+                    <div class="item">
+                      <div class="sport-tournament">
+                        <div class="tournament-details"> <span class="tournament-name">ICC Women’s Cricket Worls Cup</span> <span class="tournament-match">Match 15</span> <span class="tournament-date">20 April,Fri</span> <span class="tournament-venue">Bay Oval,Mount Maunganui</span> </div>
+                        <div class="tournament-score">
+                          <div class="team-01 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/09.jpg" alt="">
+                            <span class="team-name">FR-W</span> </span> <span class="team-score">300/10</span> <span class="team-overs">(48.2)RR 3.68</span> </div> <span class="team-vs">V/S</span>
+                          <div class="team-02 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/11.jpg" alt="">
+                            <span class="team-name">DS-W</span> </span> <span class="team-score">250/4</span> <span class="team-overs">(36.1)RR 4.15</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- item-03 -->
+                    <div class="item">
+                      <div class="sport-tournament">
+                        <div class="tournament-details"> <span class="tournament-name">ICC Women’s Cricket Worls Cup</span> <span class="tournament-match">Match 15</span> <span class="tournament-date">25 May,Thu</span> <span class="tournament-venue">Bay Oval,Mount Maunganui</span> </div>
+                        <div class="tournament-score">
+                          <div class="team-01 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/12.jpg" alt="">
+                            <span class="team-name">IT-W</span> </span> <span class="team-score">250/10</span> <span class="team-overs">(47.2)RR 3.68</span> </div> <span class="team-vs">V/S</span>
+                          <div class="team-02 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/06.jpg" alt="">
+                            <span class="team-name">IN-W</span> </span> <span class="team-score">175/4</span> <span class="team-overs">(35.5)RR 4.15</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- item-04 -->
+                    <div class="item">
+                      <div class="sport-tournament">
+                        <div class="tournament-details"> <span class="tournament-name">ICC Women’s Cricket Worls Cup</span> <span class="tournament-match">Match 15</span> <span class="tournament-date">2 June,Mon</span> <span class="tournament-venue">Bay Oval,Mount Maunganui</span> </div>
+                        <div class="tournament-score">
+                          <div class="team-01 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/06.jpg" alt="">
+                            <span class="team-name">IN-W</span> </span> <span class="team-score">134/10</span> <span class="team-overs">(36.2)RR 3.68</span> </div> <span class="team-vs">V/S</span>
+                          <div class="team-02 team"> <span class="team-name-flag">
+                            <img class="img-fluid country-flag" src="images/country-flags/02.jpg" alt="">
+                            <span class="team-name">EN-W</span> </span> <span class="team-score">113/4</span> <span class="team-overs">(27.1)RR 4.15</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> --}}
+
+
+  {{!-- National News --}}
+  <section class="space-lg-pb explore-products">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        <div class="col-lg-12 col-xl-12">
+          <div class="news-sport-posts">
+            <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/national'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>National</h2> </div>
+            <div class="news-tab">
+              
+              <div class="tab-content" id="pills-tabContent02">
+               
+                <div class="tab-pane fade active show" id="pills-gaming" role="tabpanel" aria-labelledby="pills-gaming-tab" tabindex="0">
+                  <div class="row">
+                    
+                    {{#each nationalone}}
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      <div class="blog-post post-style-03">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div> <span class="badge badge-large bg-purple">National</span>
+                        <div class="blog-post-details">
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            
+                            <div class="blog-post-time" style="font-size:12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    {{/each}}
+                    
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      {{#each nationalnews}}
+                      <div class="blog-post post-style-04">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div>
+                        <div class="blog-post-details"> 
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!--=================================
+        explore-products -->
+
+        <!--=================================
+        sidebar -->
+ 
+        <!--=================================
+        sidebar -->
+
+      </div>
+    </div>
+  </section>
+  {{!-- End of National News --}}
+
+
+    {{!-- Spot Lights --}}
+  <section class="space-sm-ptb" style="background:url('/images/bg/01.jpg');">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-title">
+            <h2 class="mb-0" onclick="window.location.href = 'https://www.youtube.com/@northeastherald5966'" style="color:white;"><i class="fa-solid fa-bolt-lightning" style="color: white;"></i>Videos</h2> </div>
+        </div>
+      </div>
+      <div class="row">
+        {{#each fYotube}}
+        <div class="col-md-4" onclick="window.location.href = 'https://www.youtube.com/watch?v={{video_key}}&ab_channel=NortheastHerald'" style="margin-bottom: 10px;">
+          <div class="col">
+            <div class="card shadow-sm">
+              <iframe width="" height="200" src="https://www.youtube.com/embed/{{video_key}}" title="YouTube video player" frameborder="0" allow=" clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onclick="window.location.href = 'https://www.youtube.com/watch?v={{video_key}}&ab_channel=NortheastHerald'"></iframe>
+              <div class="card-body" style="padding:10px;">
+                <h3 class="card-text" style="font-size: 15px;"></h3>
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+  {{!-- End of Spot Lights --}}
+
+
+
+
+
+  {{!-- Videos --}}
+  {{!-- <section class="space-lg-ptb bg-holder video-section" style="background-image: url(images/bg/01.jpg);">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+
+        
+        <div class="col-lg-6 col-xl-7">
+          <div class="video-box">
+            <div class="section-title">
+              <h2 class="mb-0 text-white"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>Watch It</h2> 
+            </div>
+            <div class="video-image"> 
+              <img class="img-fluid" src="images/bg/video-bg.jpg" alt="image">
+              <a class="video-btn popup-youtube" href="../../../www.youtube.com/watchb1ef.html?v=LgvseYYhqU0">
+                <i class="fas fa-play"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-lg-6 col-xl-5">
+          <div class="blog-style-vertical">
+            <div class="blog-post post-style-05">
+              <div class="blog-image"> <img class="img-fluid" src="images/blog/20.jpg" alt="">
+                <div class="video-icon"><a href="#"><i class="fa-solid fa-video text-orange"></i></a></div>
+              </div>
+              <div class="blog-post-details"> 
+                <h6 class="blog-title" style="font-size:18px;"><a href="#">Gaming is our passion. We create fun games that you'll love</a></h6>
+              </div>
+            </div>
+
+
+
+            <div class="blog-post post-style-05">
+              <div class="blog-post-date"> <a href="#">Mon</a>
+                <h2>08</h2> </div>
+              <div class="blog-image"> <img class="img-fluid" src="images/blog/09.jpg" alt="">
+                <div class="video-icon"><a href="#"><i class="fa-solid fa-video text-primary"></i></a></div>
+              </div>
+              <div class="blog-post-details"> <span class="badge badge-small bg-purple">Sport</span>
+                <h6 class="blog-title"><a href="#">Sport is important for good health</a></h6>
+                <div class="blog-view"> <a href="#">9 M Views</a> <a class="" href="#">4Days Ago</a> </div>
+              </div>
+            </div>
+            <div class="blog-post post-style-05">
+              <div class="blog-post-date"> <a href="#">Tue</a>
+                <h2>15</h2> </div>
+              <div class="blog-image"> <img class="img-fluid" src="images/blog/21.jpg" alt="">
+                <div class="video-icon"><a href="#"><i class="fa-solid fa-video text-purple"></i></a></div>
+              </div>
+              <div class="blog-post-details"> <span class="badge badge-small bg-blue">TRAVEL</span>
+                <h6 class="blog-title"><a href="#">Affordable travel. Unforgettable experiences</a></h6>
+                <div class="blog-view"> <a href="#">7 M Views</a> <a class="" href="#">3Days Ago</a> </div>
+              </div>
+            </div>
+            <div class="blog-post post-style-05">
+              <div class="blog-post-date"> <a href="#">Wed</a>
+                <h2>09</h2> </div>
+              <div class="blog-image"> <img class="img-fluid" src="images/blog/22.jpg" alt="">
+                <div class="video-icon"><a href="#"><i class="fa-solid fa-video text-red"></i></a></div>
+              </div>
+              <div class="blog-post-details"> <span class="badge badge-small bg-pink">LIFESTYLE</span>
+                <h6 class="blog-title"><a href="#">Everyone Should Believe In Lifestyle</a></h6>
+                <div class="blog-view"> <a href="#">5 M Views</a> <a class="" href="#">2Days Ago</a> </div>
+              </div>
+            </div>
+            <div class="blog-post post-style-05">
+              <div class="blog-post-date"> <a href="#">Thu</a>
+                <h2>25</h2> </div>
+              <div class="blog-image"> <img class="img-fluid" src="images/blog/20.jpg" alt="">
+                <div class="video-icon"><a href="#"><i class="fa-solid fa-video text-orange"></i></a></div>
+              </div>
+              <div class="blog-post-details"> <span class="badge badge-small bg-orange">GAME</span>
+                <h6 class="blog-title"><a href="#">Get ready for fun challenges and unique online gameplay</a></h6>
+                <div class="blog-view"> <a href="#">13 M Views</a> <a class="" href="#">5Days Ago</a> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  --}}
+  {{!-- Ennd of Videos --}}
+
+
+  {{!-- Sports News --}}
+  <section class="space-lg-ptb explore-products">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        <div class="col-lg-12 col-xl-12">
+          <div class="mb-4">
+            <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/sports'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>Sports</h2> </div>
+            <div class="news-tab">
+             
+
+
+              <div class="tab-content" id="pills-tabContent04">
+                
+                <div class="tab-pane fade active show" id="pills-gaming04" role="tabpanel" aria-labelledby="pills-gaming-tab04" tabindex="0">
+                  <div class="row">
+                    
+                    {{#each sportone}}
+                    <div class="col-md-5 col-lg-12 col-xl-6">
+                      <div class="blog-post post-style-03">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div> 
+                        <div class="blog-post-details">
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                          <p>{{{substr "200" meta_description}}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {{/each}}
+
+
+                    <div class="col-md-7 col-lg-12 col-xl-6">
+                      <div class="row">
+
+                        {{#each sportnews}}
+                        <div class="col-lg-6 col-sm-6">
+                          <div class="blog-post post-style-02 mb-3">
+                            <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div> 
+                            <div class="custom-headlines">
+                              <h6 class="custom-headlines"><a href="/{{post_category}}/{{post_url}}">{{post_name}}.</a></h6>
+                              <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                            </div>
+                          </div>
+                        </div>
+                        {{/each}}
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+
+
+
+
+
+       
+      </div>
+    </div>
+  </section>
+  {{!-- End of Sports News --}}
+
+  {{!-- International News --}}
+  <section class="space-pb">
+   <div class="container" style="max-width: 1130px;">
+     <div class="row">
+       <div class="col-lg-12 col-xl-12">
+         <div class="news-medical-posts">
+            <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/international'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>International</h2>
+            </div>
+            <div class="news-tab">
+              <div class="tab-content" id="pills-tabContent02">
+                <div class="tab-pane fade active show" id="pills-gaming" role="tabpanel" aria-labelledby="pills-gaming-tab" tabindex="0">
+                  <div class="row">
+                    <div class="col-lg-12 col-xl-6 mb-4 mb-xl-0">
+                      {{#each globalone}}
+                      <div class="blog-post post-style-01">
+                        <div class="blog-image">
+                          <img class="img-fluid" src="{{post_image}}" alt="">
+                        </div>
+                        <div class="blog-post-details">
+                         
+                          <h5 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h5>
+                          <div class="blog-post-meta">
+                           
+                            <div class="blog-post-time" style="font-size:12px;">
+                              <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+
+                    </div>
+                    <div class="col-lg-12 col-xl-6">
+                      <ul class="list-unstyled current-list">
+                        {{#each globalnews}}
+                        <li class="d-flex"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></li>
+                        {{/each}}
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row mt-4">
+                    {{#each globaltwo}}
+                    <div class="col-lg-4 col-md-4">
+                      <h6 class="current-news blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                    </div>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+       
+       </div>
+       </div>
+     </div>
+   </div>
+  </section>
+  {{!-- End of International News --}}
+
+
+  {{!-- Finanace News --}}
+  <section class="space-lg-pb explore-products">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        <div class="col-lg-12 col-xl-12">
+          <div class="news-sport-posts">
+            <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/finance'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>Finance</h2> </div>
+            <div class="news-tab">
+              
+              <div class="tab-content" id="pills-tabContent02">
+               
+                <div class="tab-pane fade active show" id="pills-gaming" role="tabpanel" aria-labelledby="pills-gaming-tab" tabindex="0">
+                  <div class="row">
+                    
+                    {{#each financeone}}
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      <div class="blog-post post-style-03">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div> <span class="badge badge-large bg-purple">National</span>
+                        <div class="blog-post-details">
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            
+                            <div class="blog-post-time" style="font-size:12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                          <p>{{{substr "200" meta_description}}}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {{/each}}
+                    
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      {{#each finance}}
+                      <div class="blog-post post-style-04">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div>
+                        <div class="blog-post-details"> 
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!--=================================
+        explore-products -->
+
+        <!--=================================
+        sidebar -->
+ 
+        <!--=================================
+        sidebar -->
+
+      </div>
+    </div>
+  </section>
+  {{!-- End of Finance News --}}
+
+
+  {{!-- Entertainment News --}}
+  <section class="space-lg-pb explore-products">
+    <div class="container" style="max-width: 1130px;">
+      <div class="row">
+        <div class="col-lg-12 col-xl-12">
+          <div class="news-sport-posts">
+            <div class="section-title">
+              <h2 class="title mb-0" onclick="window.location.href = '/showbiz'"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;"></i>Entertainment</h2> </div>
+            <div class="news-tab">
+              
+              <div class="tab-content" id="pills-tabContent02">
+               
+                <div class="tab-pane fade active show" id="pills-gaming" role="tabpanel" aria-labelledby="pills-gaming-tab" tabindex="0">
+                  <div class="row">
+                    
+                    {{#each entertainmentone}}
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      <div class="blog-post post-style-03">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div> <span class="badge badge-large bg-purple">National</span>
+                        <div class="blog-post-details">
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            
+                            <div class="blog-post-time" style="font-size:12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {{/each}}
+                    
+                    <div class="col-md-6 col-lg-12 col-xl-6">
+                      {{#each entertainment}}
+                      <div class="blog-post post-style-04">
+                        <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div>
+                        <div class="blog-post-details"> 
+                          <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
+                          <div class="blog-post-meta">
+                            <div class="blog-post-time" style="font-size: 12px;"> <a href="/{{post_category}}/{{post_url}}"><i class="fa-solid fa-calendar-days"></i>{{substr "16" update_date}}</a> </div>
+                          </div>
+                        </div>
+                      </div>
+                      {{/each}}
+
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!--=================================
+        explore-products -->
+
+        <!--=================================
+        sidebar -->
+ 
+        <!--=================================
+        sidebar -->
+
+      </div>
+    </div>
+  </section>
+  {{!-- End of Entertainment News --}}
+
+ 
+
+
+
+  <!--=================================
+  Back To Top -->
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+    </svg>
+  </div>
+  <!--=================================
+  Back To Top -->
+
+  <!--=================================
+    Javascript -->
+  <!-- JS Global Compulsory (Do not remove)-->
+  
+</body>
+
+
+</html>
