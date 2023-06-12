@@ -1,13 +1,16 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect("mongodb://localhost:27017/kokthum", {
-   useNewUrlParser: true,
-   useUnifiedTopology: true
-});
+// mongoose.connect("mongodb://localhost:27017/kokthum", {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true
+// });
 
 
-// mongoose.connect('mongodb+srv://birajit_dev:*67Birajit_dev@ne-surf.g7a62.mongodb.net/neSurf?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+
+ mongoose.connect('mongodb+srv://berean:bereanMark@kokthumnews.fdgowiq.mongodb.net?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
