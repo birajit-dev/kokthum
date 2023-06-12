@@ -11,10 +11,47 @@ const { resolve } = require('path');
 const { all } = require('express/lib/application');
 const { assert } = require('console');
 const youtube = require('../model/youtube');
+const allnews = require('../model/allnews');
 
 
         exports.homePage = async(req, res, next) => {
             try{
+                //category
+                const politics = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
+                const education = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
+                const culture = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
+                const national = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('4').lean();
+
+                //Three Segment
+                const jobs_one = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('3').lean();
+                const jobs_two = await allNews.find({post_category:'national'}).sort({news_id:-1}).skip('3').limit('3').lean();
+                const jobs_three = await allNews.find({post_category:'national'}).sort({news_id:-1}).skip('6').limit('3').lean();
+
+                //Four Segment Sports
+                const sports_one = await allNews.find({post_category:'sports'}).sort({news_id:-1}).limit('3').lean();
+                const sports_two = await allNews.find({post_category:'sports'}).sort({news_id:-1}).skip('3').limit('3').lean();
+                
+                
+                // //Two Section
+                // const sports = await allNews.find({post_category:'sports'}).sort({news_id:-1}).limit('3').lean();
+                // const sport2 = await allNews.find({post_category:'sports'}).sort({news_id:-1}).skip('3').limit('3').lean();
+
+                //Entertainment Two Section
+
+
+
+
+                
+
+
+
+
+                //const TopNews1 = await allnews.find({ne_insight:'yes'}).sort({news_id:-1}).limit('1').lean();
+                const topnews_one = await allNews.find({ne_insight:'yes'}).sort({news_id:-1}).limit('1').lean();
+                const topnews_two = await allNews.find({ne_insight:'yes'}).sort({news_id:-1}).skip('1').limit('7').lean();
+                const kokthum_insight = await allNews.find({ne_insight:'yes'}).sort({news_id:-1}).limit('2').lean();
+
+
                 const topnews = await allNews.find({ne_insight:'yes'}).sort({news_id:-1}).limit('1').lean();
                 const latestnews = await allNews.find({post_topic:{$ne:'headlines'},post_category:{$ne:'article'}}).sort({news_id:-1}).limit('3').lean();
 
@@ -26,11 +63,11 @@ const youtube = require('../model/youtube');
                 const skipOneTopNews = ftopNews.toString();
 
 
-                const tripuranews = await allNews.find({post_category:'tripura',post_name:{$ne:skipOneTopNews}}).sort({news_id:-1}).limit('10').lean();
+                // const tripuranews = await allNews.find({post_category:'tripura',post_name:{$ne:skipOneTopNews}}).sort({news_id:-1}).limit('10').lean();
                 //const relatedNews = await allNews.find({post_category:catD,post_url:{$ne:nUrl}}).sort({news_id:-1}).limit('5').lean();
 
                 //Tripura All News
-                // const tripuranews = await allNews.find({post_category:'tripura',ne_insight:{$ne:'yes'}}).sort({news_id:-1}).limit('5').lean();
+                const tripuranews = await allNews.find({post_category:'tripura',ne_insight:{$ne:'yes'}}).sort({news_id:-1}).limit('5').lean();
 
                 const nationalnews = await allNews.find({post_category:'national'}).sort({news_id:-1}).skip('1').limit('5').lean();
                 const nationalone = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('1').lean();
@@ -65,7 +102,7 @@ const youtube = require('../model/youtube');
 
                 res.render('home',
                 {
-                    pageTitle: 'Northeast Herald | Ne Herald | Agartala News, Tripura News, Kokborok News, Northeast News',
+                    pageTitle: 'Kokthum The News | Agartala News, Tripura News, Kokborok News, Northeast News',
                     pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
                     pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
                     pageUrl: 'https://www.neherald.com/',
@@ -83,7 +120,9 @@ const youtube = require('../model/youtube');
                     spotlight, 
                     entertainment, 
                     finance,
-                    article, nationalone, sportone, globalone, globaltwo, entertainmentone, financeone, fYotube
+                    article, nationalone, sportone, globalone, globaltwo, entertainmentone, financeone, fYotube,
+                    //Kokthum
+                    topnews_one,topnews_two,kokthum_insight,politics,education,culture,national,jobs_one,jobs_two,jobs_three,sports_one,sports_two
                 });
             }
             catch{
@@ -312,3 +351,13 @@ const youtube = require('../model/youtube');
                 res.status(500).send({message: error.message || "Error in Homepage"});
             }
         }
+
+        exports.pageAuthor = async(req, res) =>{
+            try{
+                res.render('author');
+            }
+            catch{
+
+            }
+        }
+

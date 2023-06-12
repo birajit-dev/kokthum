@@ -1,151 +1,116 @@
-   <!--=================================
-    Inner Header -->
 
-    <!--=================================
-    Inner Header -->
-
-    <!--=================================
-    Blog -->
-    <section class="space-ptb" style="padding: 10px;">
-      <div class="container" style="max-width: 1130px;">
-        <div class="row">
-
-
-          <div class="col-lg-7 col-xl-8 blog-single" style="background:white;">
-            <div class="blog-post-info">
-              <div class="blog-content pb-0">
-               
-                <div class="blog-post-title">
-                  <h3 class="mb-0" style="font-family:'PT Serif'">{{singlenews.post_name}}</h3>
-                </div>
-                <div class="blog-post post-style-07 border-0 py-4 px-0">
-                  <div class="blog-post-details">
-                    <div class="blog-post-meta p-0">
-                      <div class="blog-post-user">
-                        <a href="#" style="font-family:'PT Serif';"> 
-                          {{#ifEquals singlenews.post_category "article"}}
-                              {{else}}
-                              By {{singlenews.author}}
-                          {{/ifEquals}}
-
-                          </a>
-                      </div>
-                      <div class="blog-post-time">
-                        <a href="#" style="font-family:'PT Serif';"><i class="fa-solid fa-calendar-days"></i>{{substr "12" singlenews.update_date}}</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                 <div class="blog-post-image mb-4">
-                  <img class="img-fluid" src="{{singlenews.post_image}}" alt="">
-                </div>
-                
-                <div class="singlenews" style="text-align: justify;font-family:'PT Serif';font-size:18px;color:black">
-                        {{{singlenews.post_summary}}}
-                        <br>
-                        {{{singlenews.post_content}}}
-                </div>                
-                
-                
-                
-                
-                
-                
-                <div class="bg-white mb-4 mt-4">
-                  <h6 class="widget-title text-uppercase fw-bolder">Leave a Reply</h6>
-                  <div class="blog-sidebar-post-divider mb-4">
-                  </div>
-                  <form class="row">
-                    <div class="col-lg-4 mb-3">
-                      <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                      <input type="text" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="col-lg-4 mb-3">
-                      <input type="text" class="form-control" placeholder="Web">
-                    </div>
-                    <div class="col-lg-12 mb-3">
-                      <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
-                    </div>
-                    <div class="col-lg-12 mb-3">
-                      <a class="btn btn-primary" href="#">Post comment</a>
-                    </div>
-                  </form>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-
-
-
-
-
-          <div class="col-lg-5 col-xl-4">
-
-            <div class="col mb-2" style="background-color:white;border-radius:10px;">
-          <div class="col-lg-12">
-            <div class="section-title" style="padding:8px;margin-bottom: -2px;">
-              <h6 class="mb-0" style="color:black;font-weight:900;font-size:20px;font-family:'Lato Black',sans-serif">Related News</h6> 
+<!-- end single-header -->
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="blog-post california">
+      
+          <div class="post-content">
+            <h2 class="post-title" style="font-size:30px;">{{singlenews.post_name}}</h2>
+            <div class="metas">
+              <div class="author">
+                <figure><img src="/images/kokthum.png" alt="Image"></figure>
+                By <a href="#">{{singlenews.author}}</a></div>
+              <div class="dot"></div>
+              <span class="date">{{singlenews.update_date}}</span> </div>
               
-              
-              <a href="/recommended-for-you" onclick="gaFireRhsWidgetViewAll('/recommended-for-you','rfu_widget_rhs',false,this); goUrlCollectionWebGApoc('/recommended-for-you','0','rfu_widget_rhs','','');" class="rightLink" style="float: right;
-        width: 9px;
-        height: 14px;
-        background: url('https://www.livemint.com/lm-img/dev/rightBlock.svg') no-repeat 0 0;"></a>
-              </div>
-          </div>
-          {{#each relatedNews}}
-          <div class="blog-post post-style-04" style="display:flex;padding:5px;border-bottom:1px solid #d1d8e6;margin-bottom:5px">
-            <div class="blog-image" style="min-width:70px;width:0%;margin-right:10px"> <img class="img-fluid bg-overlay-black-93" src="{{post_image}}" alt="" style="width:70px;height:70px"> </div>
-            <div class="blog-post-details"> 
-              <h6 class="blog-title" style="color:black;font-size:15px;font-family:'Lato,sans-serif'"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
-              <div class="blog-post-meta">
-                <div class="blog-post-time" style="font-size: 12px;margin-top:-8px;font-family:'Lato,sans-serif'"> <a href="/{{post_category}}/{{post_url}}">{{substr "12" update_date}}</a> </div>
-              </div>
-            </div>
-          </div>
-          {{/each}}        
+              <img src="{{singlenews.post_image}}">
 
+              
+              {{{singlenews.post_content}}}
+
+            
+        
+          </div>
+          <!-- end post-content --> 
+        </div>
+        <!-- end blog-post -->
+        
+        <!-- end author-info-box -->
+
+        <!-- end post-navigation --> 
       </div>
-            
-            
-            
-              
-              <div class="widget">
-                <h6 class="widget-title">Newsletter</h6>
-                <div class="newsletter">
-                  <i class="fa-solid fa-envelope-open-text"></i>
-                  <p>Subscribe For Northeast Herald News And Receive Daily Updates</p>
-                  <div class="newsletter-box">
-                    <input type="email" class="form-control" placeholder="E-Mail Address">
-                  <button type="submit" class="btn btn-primary">Subscribe Now</button>
-                  </div>
+      <!-- end col-8 -->
+      <div class="col-lg-4 print-box" >
+        <h3 class="section-title" style="background-image: linear-gradient(to left, violet, indigo, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;">Recent News</h3>
+        <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
+                    <figure class="post-image"> <img src="/images/mini-thumb01.jpg" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="post-single.html" class="fsize15" >
+                                    ‘Threat to life,’ claims woman coach who made sexual harassment allegations against Haryana minister
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>Gobin Debbarma</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>27 April</span>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-              </div>
-              
-            </div>
+
+                <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
+                    <figure class="post-image"> <img src="/images/mini-thumb01.jpg" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="post-single.html" class="fsize15" >
+                                    ‘Threat to life,’ claims woman coach who made sexual harassment allegations against Haryana minister
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>Gobin Debbarma</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>27 April</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        <!-- end blog-post --> 
+
+        <div class="blog-post kansas print-box" style="margin-top: 10px;padding:5px;">
+          <figure class="post-image"><a href="#" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="images/whats-new01.jpg" alt="Image" style="height: 180px;"> </figure>
+          <div class="post-content">
+            <h3 class="post-title custom-fsize"><a href="" class="custom-fsize">Suspect in US documents leak destroy evidence, researched mass shootings, US prosecutors say
+            </a></h3>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">Kokthum News</span>
+                -
+            <span class="date"><a href="#">27 April, 2023</a></span> </div>
           </div>
         </div>
+        <!-- end blog-post --> 
+
+
       </div>
-    </section>
-    <!--=================================
-    Blog -->
-
-    <!--=================================
-    Footer -->
-   
-    <!--=================================
-    Footer -->
-
-    <!--=================================
-    Back To Top -->
-    <div class="progress-wrap">
-      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-      </svg>
+      <!-- end col-4 --> 
     </div>
-    <!--=================================
-    Back To Top -->
+    <!-- end row --> 
+  </div>
+  <!-- end container --> 
+</section>
+<!-- end content-section -->
+
+
+{{>national}}
+
+
+
+
+
+
+
+
+
+
+
+
 

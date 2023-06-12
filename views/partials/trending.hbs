@@ -1,0 +1,105 @@
+<section class="content-section">
+  <div class="container">
+    <div class="row">
+
+    
+    <div class="col-lg-8 print-box print-list" style="padding:0px">
+        
+        <div class="col-lg-6">
+        <h3 class="section-title" style="color:red;">Top Stories</h3>
+
+        {{#each topnews_one}}
+            <div class="blog-post">
+                <figure class="post-image"> <a href="#" class="bookmark"><i class="fal fa-bookmark"></i></a> <img src="{{post_image}}" alt="Image"> </figure>
+                    <div class="post-content">
+                        <h3 class="post-title fsize20" style="font-weight: 800;">
+                            <a href="{{post_category}}/{{post_url}}" class="fsize20" style="text-align: justify;">
+                            {{post_name}}
+                        </h3>
+                        <p style="font-size: 14px;text-align:justify">
+                            {{post_summary}}
+                        </p>
+                        <div class="metas">
+                            <div class="author">
+                                <a href="#">{{author}}</a>
+                            </div>
+                                <span class="date">{{update_date}}</span>
+                        </div>
+                    </div>
+            </div>
+        {{/each}}
+        </div>
+
+            <div class="col-lg-3 inside-list">
+
+                <div style="margin-top:30px;">
+
+                </div>
+            {{#each topnews_two}}
+                <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px">
+                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="{{post_category}}/{{post_url}}" class="fsize15" >
+                                    {{post_name}}
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>{{author}}</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>{{update_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            {{/each}}        
+
+
+        
+
+
+            </div>
+    </div>
+        
+
+
+      <div class="col-lg-4 print-box" >
+        <h3 class="section-title" style="background-image: linear-gradient(to left, violet, indigo, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;">Kokthum Insight</h3>
+       
+       
+       {{#each kokthum_insight}}
+        <div class="blog-post kansas print-box" style="padding:5px;">
+          <figure class="post-image"><a href="{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height: 180px;"> </figure>
+          <div class="post-content">
+            <h3 class="post-title custom-fsize"><a href="{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}
+            </a></h3>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">{{author}}</span>
+            <span class="date"><a href="{{post_category}}/{{post_url}}">{{update_date}}</a></span> </div>
+          </div>
+        </div>
+        {{/each}}
+        <!-- end blog-post --> 
+
+
+
+      </div>
+      <!-- end col-8 --> 
+    </div>
+    <!-- end row --> 
+  </div>
+  <!-- end container --> 
+</section>
+<!-- end content-section -->
+<div class="section-ad">
+  <div class="container">
+    <figure><a href="#"><img src="images/horizontal-ad.jpg" alt="Image"></a></figure>
+  </div>
+  <!-- end container --> 
+</div>
+<!-- end section-separator -->

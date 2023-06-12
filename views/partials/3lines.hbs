@@ -1,0 +1,94 @@
+<section class="content-section" style="background:black;">
+    <div class="container print-box" style="background-color: black;padding-top:10px;">
+        <div class="row">
+            {{!-- Politics --}}
+            <div class="col-lg-4" >
+                <div class="print-box" style="background-color:white;">
+                <div class="" style="background-color:#040303b5;">
+                    <h4 class="section-title color-heading" style="background-color:#555454b5;font-size:20px">Politics</h4>
+                </div>
+                {{#each politics}}
+                <div class="blog-post miami dot-line" style="margin-bottom:5px;padding:5px;">
+                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="{{post_category}}/{{post_url}}" class="fsize15" >
+                                    {{post_name}}
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>{{author}}</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>{{update_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+
+            {{!-- Education --}}
+            <div class="col-lg-4" >
+                <div class="print-box" style="background-color:white;">
+                <div class="" style="background-color:#040303b5;">
+                    <h4 class="section-title color-heading" style="background-color:#555454b5;font-size:20px">Education</h4>
+                </div>
+                {{#each education}}
+                <div class="blog-post miami dot-line" style="margin-bottom:5px;padding:5px;">
+                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="{{post_category}}/{{post_url}}" class="fsize15" >
+                                    {{post_name}}
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>{{author}}</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>{{update_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+
+            {{!-- Culture --}}
+            <div class="col-lg-4" >
+                <div class="print-box" style="background-color:white;">
+                <div class="" style="background-color:#040303b5;">
+                    <h4 class="section-title color-heading" style="background-color:#555454b5;font-size:20px">Culture</h4>
+                </div>
+                {{#each culture}}
+                <div class="blog-post miami dot-line" style="margin-bottom:5px;padding:5px;">
+                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                        <div class="post-content">
+                            <h3 class="post-title" class="fsize15">
+                                <a href="{{post_category}}/{{post_url}}" class="fsize15" >
+                                    {{post_name}}
+                                </a>
+                            </h3>
+                            <div class="metas">
+                                <div class="views">
+                                    <span>{{author}}</span>
+                                </div>
+                                <div class="read-time">
+                                    <i class="far fa-clock"></i> <span>{{update_date}}</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                {{/each}}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

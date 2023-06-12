@@ -1,93 +1,161 @@
- <header class="header header-style-06">
-    <div class="topbar d-none d-md-block" style="padding:0px;">
-      <div class="container">
-        <div class="topbar-inner">
-          <div class="row">
-            <div class="col-12">
-              <div class="d-lg-flex justify-content-between text-center">
-                <div class="topbar-center" >
-                  <a class="navbar-brand d-none d-lg-block" href="/">
-                    <img class="img-fluid logo-dark" src="https://neherald.com/images/newlogo.png" alt="logo" style="width: 40%;float:left;">
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container position-relative">
-        <a class="navbar-brand d-inline-block d-lg-none" href="/" style="padding-right: 30px;">
-          <img class="img-fluid" src="https://neherald.com/images/newlogo.png" alt="logo">
-        </a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/" style="font-family: 'Times New Roman';font-size:18px;">Home</a>
-            </li>
-
-            <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown02" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: 'Times New Roman';font-size:18px;">About Tripura<i class="fas fa-chevron-down fa-xs"></i></a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown02">
-                <li><a class="dropdown-item" style="font-family: 'Times New Roman';font-size:18px;" href="/en/pages/about-tripura">Tripura</a></li>
-                <li><a class="dropdown-item" style="font-family: 'Times New Roman';font-size:18px;" href="/en/pages/tripura-governer">Governon</a></li>
-                <li><a class="dropdown-item" style="font-family: 'Times New Roman';font-size:18px;" href="/en/pages/tripura-chief-minister">Chief Minister</a></li>
-                <li><a class="dropdown-item" style="font-family: 'Times New Roman';font-size:18px;" href="/en/pages/tripura-minister">Council of Ministers</a></li>
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/tripura" style="font-family: 'Times New Roman';font-size:18px;">Tripura</a>
-            </li>
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/national" style="font-family: 'Times New Roman';font-size:18px;">National</a>
-            </li>
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/world" style="font-family: 'Times New Roman';font-size:18px;">International</a>
-            </li>
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/showbiz" style="font-family: 'Times New Roman';font-size:18px;">Lifestyle</a>
-            </li>
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/health" style="font-family: 'Times New Roman';font-size:18px;">Spotlight</a>
-            </li>
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/sports" style="font-family: 'Times New Roman';font-size:18px;">Sports</a>
-            </li>    
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/showbiz" style="font-family: 'Times New Roman';font-size:18px;">Entertainment</a>
-            </li>  
-            <li class="nav-item dropdown"> 
-              <a class="nav-link" href="/api/v1/album" style="font-family: 'Times New Roman';font-size:18px;">Photo Album</a>
-            </li>  
-
-
-
-            <form action="/api/v1/search" method="get">
-
-            <div class="input-group">
-
-              <div class="form-outline">
-                <input type="search" id="q" name="q" class="form-control" style="height:40px;margin-top:3px;" />
-              </div>
-              <button type="button" class="btn btn-primary" style="height:40px;margin-top:3px;">
-                <i class="fas fa-search"></i>
-              </button>
-
-            </div>
-            </form>
-
-
+<nav class="sticky-navbar">
+  <div class="logo"> <a href="index.html"><img src="/images/kokthum.png" alt="Image"></a> </div>
+  <!-- end logo -->
+  <div class="site-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Pages</a><i></i>
+        <ul>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="our-authors.html">Our Authors</a></li>
+          <li><a href="advertise.html">Advertise</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-        </div>
-        
-        
+      </li>
+      <li><a href="fashion.html">Fashion</a></li>
+      <li><a href="travel.html">Travel</a></li>
+      <li><a href="beauty.html">Beauty</a></li>
+      <li><a href="lifestyle.html">Lifestyle</a></li>
+    </ul>
+  </div>
+  <!-- end site-menu -->
+  <div class="search-button"> <i class="fal fa-search"></i> </div>
+  <!--end search-button --> 
+</nav>
+<!--end sticky-navbar -->
+<div class="scrollup">
+  <svg class="progress-circle" width="100%" height="100%" viewBox="-2 -2 104 104">
+    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+  </svg>
+</div>
+<aside class="side-widget">
+  <div class="close-button"><i class="fal fa-times"></i></div>
+  <!-- end close-button -->
+  <figure class="logo"> <img src="/images/kokthum.png" alt="Image"> </figure>
+  <div class="inner">
+    <div class="widget">
+		<div class="account"><i class="fal fa-user-circle"></i> <a href="#">ACCOUNT</a></div>
+      <!-- end account --> 
+      <div class="site-menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Pages</a><i></i>
+            <ul>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="our-authors.html">Our Authors</a></li>
+              <li><a href="advertise.html">Advertise</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li><a href="fashion.html">Fashion</a></li>
+          <li><a href="travel.html">Travel</a></li>
+          <li><a href="beauty.html">Beauty</a></li>
+          <li><a href="lifestyle.html">Lifestyle</a></li>
+        </ul>
       </div>
-        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa-solid fa-align-right"></i>
-        </button>
-    </nav>
-  </header>
-  <!--=================================
-  Header -->
+      <!-- end site-menu --> 
+    </div>
+    <!-- end widget -->
+    
+    <!-- end widget -->
+    
+    <!-- end widget --> 
+  </div>
+  <!-- end inner --> 
+</aside>
+<!-- end side-widget -->
+<div class="search-box">
+  <div class="close-button"><i class="fal fa-times"></i></div>
+  <!-- end close-button -->
+  <div class="container">
+    <form>
+      <input type="search" placeholder="Type here to find">
+    </form>
+    <h6>POPULAR SEARCHS</h6>
+    <ul>
+      <li><a href="#">cooking</a></li>
+      <li><a href="#">make up</a></li>
+      <li><a href="#">vacation</a></li>
+    </ul>
+  </div>
+  <!-- end container --> 
+</div>
+<!-- end search-box -->
+<header class="header">
+  <div class="container">
+    <div class="left-side">
+      <div class="social-media"> <div class="label"> FOLLOW US
+        <div class="social-info">
+          <ol>
+            <li><i class="fab fa-facebook-f"></i> Facebook <span>5.6K</span></li>
+            <li><i class="fab fa-twitter"></i> Twitter <span>1.62K</span></li>
+            <li><i class="fab fa-youtube"></i> Youtube <span>2.4M</span></li>
+            <li><i class="fab fa-instagram"></i> Instagram <span>5.6K</span></li>
+          </ol>
+        </div>
+        <!-- end social-info --> 
+        </div>
+		  <!-- end label -->
+        <ul>
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+      </div>
+      <!-- end social-connected --> 
+    </div>
+    <!-- end left-side -->
+    <div class="logo"> <a href="index.html">
+		<img src="/images/kokthum.png" alt="Image" class="logo-light">
+		<img src="/images/kokthum.png" alt="Image" class="logo-dark"></a> </div>
+    <!-- end logo -->
+    <div class="right-side">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="darkSwitch">
+        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+      </div>
+      <!-- end custom-control -->
+      <div class="account"><i class="fal fa-user-circle"></i> <a href="#">ACCOUNT</a></div>
+      <!-- end account --> 
+    </div>
+    <!-- end right-side --> 
+  </div>
+  <!-- end container --> 
+</header>
+
+
+<!-- end header -->
+<nav class="navbar">
+  <div class="container">
+    <div class="hamburger-menu"> <i class="fal fa-bars"></i> </div>
+    <!-- end hamburger-menu -->
+	   <div class="logo"> <a href="index.html">
+		<img src="/images/kokthum.png" alt="Image" class="logo-light">
+		<img src="/images/kokthum.png" alt="Image" class="logo-dark"></a> </div>
+    <!-- end logo -->
+    <div class="site-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Pages</a><i></i>
+          <ul>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="our-authors.html">Our Authors</a></li>
+            <li><a href="advertise.html">Advertise</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li><a href="fashion.html">Fashion</a></li>
+        <li><a href="travel.html">Travel</a></li>
+        <li><a href="beauty.html">Beauty</a><span class="label">NEW</span></li>
+        <li><a href="lifestyle.html">Lifestyle</a></li>
+      </ul>
+    </div>
+    <!-- end site-menu -->
+    <div class="search-button"> <i class="fal fa-search"></i> </div>
+    <!-- end search-button --> 
+  </div>
+  <!-- end container --> 
+</nav>
+<!-- end navbar -->

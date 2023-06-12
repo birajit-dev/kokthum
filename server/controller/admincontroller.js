@@ -8,6 +8,11 @@ const breakingNews = require('../model/breakingnews');
 const galleryDb = require('../model/gallery');
 const Ibns = require('../model/ibns');
 const YouTube = require('../model/youtube');
+const UserRoles = require('../model/insideUser');
+
+
+
+
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
@@ -23,6 +28,7 @@ const breakingnews = require('../model/breakingnews');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 var moment = require('moment'); // require
+
 
 const newDate = moment().format('lll');
 
@@ -418,28 +424,40 @@ const newDate = moment().format('lll');
                     update_date:nDate,
                 });
                 const sVideo = upYouTube.save();
-                res.status(200).json("Success");
-                
+                res.status(200).json("Success");                
             }catch(error) {
                 res.status(400).json({message: error.message})
             }
     }
 
 
+    exports.addInsideUsers = async(req, res, next) =>{
+        try{
+            const {user_mail,user_role,user_pic,login_pass,user_name} = req.body;
+            var user_status = 'Active';
+            
+            let upUserRole = new UserRoles({
+                user_mail:user_mail,
+                user_name:user_name,
+                user_role:user_role,
+                user_status:user_status,
+                user_pic:user_pic,
+                login_id:user_mail,
+                login_pass:login_pass,
+            });
+            const sse = upUserRole.save();
+            res.redirect('/admin/user/allusers');
+        }catch(error){
+            res.status(400).json({message: error.message});
+        }
+    }
+    exports.addUserPage = async(req, res)=>{
+        try{
+            res.render('admin/adduser',{
+                layout: '',
+            })
+        }catch{
 
-
-
-
-
+        }
+    }
     
-    
-    
-    
-
-
-
-  
-
-
-
-

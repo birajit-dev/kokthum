@@ -1,4 +1,52 @@
   {{!-- Tripura News & Article --}}
+ <section class="content-section">
+  <div class="container print-box">
+    <div class="row">
+      <div class="col-12 print-box" style="background-color:black;">
+        <h2 class="section-title color-heading" style="font-size:20px;">{{pageCategory}}</h2>
+      </div>
+    </div>
+    <!-- end row -->
+    <div class="row justify-content-center" style="margin-top: 5px;">
+
+      {{#if categoryAll}}
+      {{#each categoryAll}}
+      <div class="col-lg-3 col-md-6" style="margin-bottom: 10px;">
+        <div class="blog-post kansas">
+          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:180px;"> </figure>
+          <div class="post-content">
+            <h3 class="post-title custom-fsize"><a href="/{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}</a></h3>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">Kokthum News</span>
+                -
+            <span class="date"><a href="#">{{update_date}}</a></span> </div>
+          </div>
+        </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <h1>Not Found</h1>
+        {{/if}}
+
+        
+
+
+
+      
+
+
+
+
+    <!-- end col-12--> 
+  </div>
+  <!-- end container --> 
+</section>
+<!-- end content-section -->
+ 
+
+
+ 
+ 
+{{!--  
   <section class="news-latest-posts" style="margin-top: 30px;">
     <div class="container" style="max-width: 1130px;">
       <div class="row">
@@ -32,8 +80,8 @@
           <div class="section-title">
             <h2 class="mb-0"><i class="fa-solid fa-bolt-lightning" style="color: #032a63;font-size:20px"></i>Recent News</h2>
           </div>
-          
-          {{#each recentNewscat}}
+           --}}
+          {{!-- {{#each recentNewscat}}
           <div class="col mb-2" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
             <div class="card shadow-sm">
               <img class="bd-placeholder-ing card-img-top" src="{{post_image}}" style="height: 200px;">
@@ -45,7 +93,7 @@
               </div>
             </div>
           </div>
-          {{/each}}
+          {{/each}} --}}
       </div>
     </div>
   </section>

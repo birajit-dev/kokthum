@@ -1,4 +1,32 @@
-.custom-headlines{
-    font-size: 16px;
+.print-box{   
+   box-shadow: 0px 1px 4px rgba(0,0,0,0.2);
 }
-
+.custom-fsize{
+    font-size: 16px;
+    line-height: 20px;
+}
+.fsize18{
+    font-size: 18px;
+}
+.fsize20{
+    font-size: 20px;
+}
+.fsize15{
+    font-size: 15px;
+}
+.dot-line{
+    border-bottom:  1px dashed black;
+}
+.right-bd{
+    border-right: 1px solid red;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.color-heading{
+    background-image: linear-gradient(to left, violet, indigo, orange, red);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
