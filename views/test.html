@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Small Image Gallery</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Small Image Gallery</h1>
+    <div class="row mt-4">
+      <!-- Image 1 -->
+      <div class="col-md-2 mb-4">
+        <div class="card">
+          <img src="https://northeastherald.sfo3.digitaloceanspaces.com/news/100198AR.JPG" class="card-img-top" alt="Image 1">
+          <div class="card-body">
+            <p class="card-text">Path: <span class="image-path">image-1.jpg</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- Image 2 -->
+      <div class="col-md-2 mb-4">
+        <div class="card">
+          <img src="https://northeastherald.sfo3.digitaloceanspaces.com/news/100198AR.JPG" class="card-img-top" alt="Image 2">
+          <div class="card-body">
+            <p class="card-text">Path: <span class="image-path">image-2.jpg</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- Add more images here -->
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Image Gallery Pagination">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

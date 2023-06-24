@@ -3,16 +3,16 @@ const { route } = require('express/lib/application');
 const router = express.Router();
 const allController = require('../controller/allcontroller');
 const adminController = require('../controller/admincontroller');
-const galleryController = require('../controller/galleryController');
 const sessions = require('express-session');
 const ibns = require('../model/ibns');
+const WebadminView = require('../controller/WebAdminView');
+const AuthorController = require('../controller/AuthorController');
 
 // CLIENT SIDE ROUTE//
 router.get('/', allController.homePage); // HOMEPAGE
 router.get('/:cate/:id', allController.newsPage); // NEWS PAGE
 router.get('/:cat', allController.categoryPage); // CATEGORY PAGE
 router.get('/en/pages/:pageurl', allController.pagesection);
-router.get('/photo/neh/gallery/:gurl', galleryController.pageGallery);
 router.get('/topnews/headlines/tripura', allController.topNewsPage);
 router.get('/en/author/name/list', allController.pageAuthor);
 //router.get('/automation/ibns/all', adminController.ibns);
@@ -29,8 +29,6 @@ router.get('/admin/user/editpage/:id', adminController.editPage);
 router.get('/admin/user/addbreaking', adminController.breakingPage);
 router.get('/admin/user/listbreaking', adminController.listBreaking);
 router.get('/admin/user/editbreaking/:id', adminController.editBreaking)
-router.get('/admin/user/addgallery', galleryController.addGallery);
-router.get('/admin/user/gallery', galleryController.listGallery);
 router.get('/admin/user/adduser', adminController.addUserPage);
 
 //API//
@@ -42,12 +40,34 @@ router.post('/admin/user/pagepost', adminController.postPage);
 router.post('/admin/user/updatepage', adminController.updatePage);
 router.post('/admin/user/breaknews', adminController.brNews);
 router.post('/admin/user/updatebreaking', adminController.updateBreaking)
-router.post('/admin/user/gallerypost', galleryController.postGallery);
 router.get('/admin/user/deletenews/:id', adminController.deleteNews);
-router.get('/admin/user/deletegallery/:id', adminController.deleteGallery);
-router.get('/admin/user/deletebreaking/:id', adminController.deleteBreaking);
 
 router.post('/admin/user/addinsideuser', adminController.addInsideUsers); //Post Method for Adding Users details..
+
+
+router.post('/web/post/adduser', adminController.addAuthor);
+router.post('/web/post/media', adminController.addMedia);
+router.post('/web/post/postbyuser', WebadminView.addBlogs);
+
+
+//Web Admin Page View//
+router.get('/admin/user/addmedia', WebadminView.addMediaPage);
+router.get('/admin/user/mediapage', WebadminView.mediaPageView);
+router.get('/admin/user/byuserpost', WebadminView.byuserPage);
+
+
+
+
+
+//AUTHO ROUTE//
+router.get('/author/user/dashboard', AuthorController.authDashboard);
+router.get('/author/user/login', AuthorController.authLogin);
+router.post('/author/user/auth', AuthorController.authUser);
+
+
+
+
+
 
 
 

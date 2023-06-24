@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Upload Form</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    {{>adminheader}}
+  <div class="container">
+    <h1 class="mt-5">Media File Upload</h1>
+    <form action="/web/post/media" method="post" enctype="multipart/form-data" class="mt-4">
+      <div class="mb-3">
+        <label for="imageUpload" class="form-label">Select Image</label>
+        <input type="file" class="form-control" id="imageUpload" name="myFile">
+      </div>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

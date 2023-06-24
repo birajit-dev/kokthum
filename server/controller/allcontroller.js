@@ -1,17 +1,19 @@
 const { request } = require('express');
 var express = require('express');
 require('../model/database');
+
+const { resolve } = require('path');
+const { all } = require('express/lib/application');
+const { assert } = require('console');
+
+
+const youtube = require('../model/youtube');
+const allnews = require('../model/allnews');
 const allNews = require('../model/allnews');
 const pagekeyword = require('../model/pagekeyword');
 const allPag = require('../model/allpage');
 const breakingNews = require('../model/breakingnews');
-const allGallery = require('../model/gallery');
 const YouTube = require('../model/youtube');
-const { resolve } = require('path');
-const { all } = require('express/lib/application');
-const { assert } = require('console');
-const youtube = require('../model/youtube');
-const allnews = require('../model/allnews');
 
 
         exports.homePage = async(req, res, next) => {
@@ -93,8 +95,6 @@ const allnews = require('../model/allnews');
                 const topheadlines = await allNews.find({ne_insight:'yes'}).sort({news_id:-1}).limit('1').lean();
                 //const topheadlines = await allNews.find({news_id:'3291'}).sort({news_id:-1}).limit('1').lean();
                 
-                const gallery = await allGallery.find().sort({gallery_id:-1}).limit('5').lean();
-                const skipGallery = await allGallery.find().sort({gallery_id:-1}).skip(1).limit('10').lean();
 
                 //YouTube Fetch
                 //const fYt = await youtube.find().sort({video_id:-1}).limit('1').lean();
@@ -105,8 +105,8 @@ const allnews = require('../model/allnews');
                     pageTitle: 'Kokthum The News | Agartala News, Tripura News, Kokborok News, Northeast News',
                     pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
                     pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
-                    pageUrl: 'https://www.neherald.com/',
-                    imageCard: 'https://www.neherald.com/logo.png',
+                    pageUrl: 'https://www.kokthum.com/',
+                    imageCard: 'https://www.kokthum.com/images/kokthum.png',
                     tripuranews,
                     topnews,
                     latestnews,
@@ -114,8 +114,7 @@ const allnews = require('../model/allnews');
                     sportnews,
                     globalnews,
                     bnews,
-                    gallery,
-                    skipGallery,
+                    
                     topheadlines,
                     spotlight, 
                     entertainment, 

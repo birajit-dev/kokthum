@@ -5,12 +5,10 @@ const allNews = require('../model/allnews');
 const allPages = require('../model/allpage');
 const adminData =  require('../model/login');
 const breakingNews = require('../model/breakingnews');
-const galleryDb = require('../model/gallery');
 const Ibns = require('../model/ibns');
 const YouTube = require('../model/youtube');
-const UserRoles = require('../model/insideUser');
-
-
+const UserModel = require('../model/insideUser');
+const MediaModel = require('../model/mediaLibrary');
 
 
 const session = require('express-session');
@@ -30,7 +28,11 @@ const multerS3 = require('multer-s3');
 var moment = require('moment'); // require
 
 
-const newDate = moment().format('lll');
+    //Multer Outside
+
+
+
+    const newDate = moment().format('lll');
 
 
     const spacesEndpoint = new aws.Endpoint('sfo3.digitaloceanspaces.com');
@@ -39,6 +41,17 @@ const newDate = moment().format('lll');
         accessKeyId:'DO00YCW72DZT2Q6WMMFF',
         secretAccessKey:'SQyXsV6kK6GsQHEUlFTCjfQ2LyKmSnAiPqAn4MAmMrc'
     });
+    const upload = multer({
+        storage: multerS3({
+        s3: s3,
+        bucket: 'northeastherald',
+        acl: 'public-read',
+        key: function (request, file, cb) {
+            console.log(file);
+            cb(null, 'news/' + ranDom + file.originalname);
+        },
+        }),
+    }).single('myFile', 1);
 
 
     //Random Function
@@ -167,23 +180,23 @@ const newDate = moment().format('lll');
                 const urlp = "https://northeastherald.sfo3.digitaloceanspaces.com/news/";
                 const aFile = urlp +nFile;
                 const nDate = moment().format('lll');
-                const {name, summary, mytextarea, keyword, description, category, tags, topics, editor, insight, author} = req.body;
+                const {name, url, summary, mytextarea, keyword, description, category, tags, insight, author} = req.body;
                 const purl = name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
                 let upallNews = new allNews({
                     post_name: name,
-                    post_url: purl,
+                    post_url: url,
                     post_summary: summary,
-                    post_content:mytextarea,
-                    post_keyword:keyword,
-                    meta_description:description,
-                    post_category:category,
+                    post_description: description,
+                    post_content: mytextarea,
+                    post_keyword: keyword,
+                    post_category: category,
                     post_image: aFile,
-                    meta_tags:tags,
-                    post_topic:topics,
-                    post_editor:editor,
-                    ne_insight:insight,
-                    author:author,
-                    update_date:nDate
+                    meta_tags: tags,
+                    insight_post: insight,
+                    author_key: author,
+                    author_name: author,
+                    post_status: 1,
+                    update_date: newDate,
                 });
                 upallNews.save();
                 res.redirect('/admin/user/dashboard');
@@ -460,4 +473,57 @@ const newDate = moment().format('lll');
 
         }
     }
+
+    exports.addAuthor = async(req, res) =>{
+        const ab =  req.body;
+        const addauthor = new UserModel({
+            user_mail: ab.user_mail,
+            user_name: ab.user_name,
+            user_role: ab.user_role,
+            user_status: ab.user_status,
+            user_pic: ab.user_pic,
+            login_id: ab.login_id,
+            password: ab.password,
+            author_bio: ab.author_bio,
+            update_date: newDate
+        });
+        await addauthor.save();
+        res.send("User Added Successfully");
+    }
+
+    exports.addMedia = async(req, res) =>{
+        const ranDom = getRandomInt(999999);
+        const upload = multer({ 
+            storage: multerS3({
+            s3: s3,
+            bucket: 'northeastherald',
+            acl: 'public-read',
+            key: function (request, file, cb) {
+                console.log(file);
+                cb(null,'news/'+ranDom + file.originalname);
+            }
+            })
+        }).single('myFile', 1);
+
+        upload(req, res, function(err){
+            if(err){
+                res.send('Something Went Wrong');
+            }else{
+                //console.log(req.file);
+                const filex = req.file.originalname;
+                const nFile = ranDom +filex;
+                const urlp = "https://northeastherald.sfo3.digitaloceanspaces.com/news/";
+                const aFile = urlp +nFile;
+                const nDate = moment().format('lll');
+                let mediaAdd = new MediaModel({
+                    media_path:aFile,
+                    media_alt:"Kokthum news image",
+                    update_date:newDate,
+                });
+                mediaAdd.save();
+                res.send("Media Uploaded.")
+            }
+        });   
+    }
+
     
