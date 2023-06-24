@@ -19,7 +19,7 @@ const YouTube = require('../model/youtube');
         exports.homePage = async(req, res, next) => {
             try{
                 //category
-                const politics = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
+                const politics = await allNews.find({post_category:'politics'}).sort({news_id:-1}).limit('5').lean();
                 const education = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
                 const culture = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('5').lean();
                 const national = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('4').lean();
