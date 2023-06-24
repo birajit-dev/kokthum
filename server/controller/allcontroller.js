@@ -144,7 +144,7 @@ const YouTube = require('../model/youtube');
                     pageTitle: singlenews.post_name + ' | Northeast Herald',
                     pageKeyword: singlenews.post_keyword,
                     pageDescription: singlenews.meta_description,
-                    pageUrl: 'https://www.neherald.com/'+singlenews.post_category+'/'+singlenews.post_url,
+                    pageUrl: 'https://www.kokthum.com/'+singlenews.post_category+'/'+singlenews.post_url,
                     imageCard: singlenews.post_image,
                     singlenews,
                     relatedNews, 
