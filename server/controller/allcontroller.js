@@ -141,7 +141,7 @@ const YouTube = require('../model/youtube');
                 //const rNews = await allNews.find({}).sort({news_id:-1}).limit('3');
                 res.render('news',
                 {
-                    pageTitle: singlenews.post_name + ' | Northeast Herald',
+                    pageTitle: singlenews.post_name + ' | Kokthum The News',
                     pageKeyword: singlenews.post_keyword,
                     pageDescription: singlenews.meta_description,
                     pageUrl: 'https://www.kokthum.com/'+singlenews.post_category+'/'+singlenews.post_url,
@@ -167,11 +167,11 @@ const YouTube = require('../model/youtube');
             //const pk = await allKey.findOne({page_category:catName});
             res.render('category',
             {
-                    pageTitle: catName.charAt(0).toUpperCase() + catName.slice(1) + ' | Northeast Herald',
+                    pageTitle: catName.charAt(0).toUpperCase() + catName.slice(1) + ' | Kokthum The News',
                     pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
                     pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
-                    pageUrl: 'https://www.neherald.com/',
-                    imageCard: 'https://www.neherald.com/logo.png',
+                    pageUrl: 'https://www.kokthum.com/',
+                    imageCard: 'https://www.kokthum.com/logo.png',
                     pageCategory: catName,
                     categoryAll,
                     recentNewscat,
@@ -193,11 +193,11 @@ const YouTube = require('../model/youtube');
                 //const pk = await allKey.findOne({page_category:catName});
                 res.render('pages',
                 {
-                        pageTitle: pageI.page_title + ' | Northeast Herald',
+                        pageTitle: pageI.page_title + ' | Kokthum The News',
                         pageKeyword: pageI.page_keyword,
                         pageDescription: pageI.page_description,
-                        pageUrl: 'https://www.neherald.com/'+pageI.page_url,
-                        imageCard: 'https://www.neherald.com/logo.png',
+                        pageUrl: 'https://www.kokthum.com/'+pageI.page_url,
+                        imageCard: 'https://www.kokthum.com/logo.png',
                         pageI,
                         bnews,
                         heading: pageI.page_title
