@@ -3,11 +3,12 @@
   <div class="container print-box">
     <div class="row">
       <div class="col-12 print-box" style="background-color:black;">
-        <h2 class="section-title color-heading" style="font-size:20px;">{{pageCategory}}</h2>
+        <h2 class="section-title color-heading" style="font-size:20px;text-transform: capitalize;">{{pageCategory}}</h2>
       </div>
     </div>
     <!-- end row -->
     <div class="row justify-content-center" style="margin-top: 5px;">
+
 
       {{#if categoryAll}}
       {{#each categoryAll}}
@@ -16,17 +17,17 @@
           <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:180px;"> </figure>
           <div class="post-content">
             <h3 class="post-title custom-fsize"><a href="/{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}</a></h3>
-            <div class="metas" style="margin-top: 5px;"> <span class="date">Kokthum News</span>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">{{update_date}}</span>
                 -
-            <span class="date"><a href="#">{{update_date}}</a></span> </div>
+            <span class="date"><a href="#">{{author_name}}</a></span> </div>
           </div>
         </div>
-        </div>
+      </div>
+
         {{/each}}
         {{else}}
         <h1>Not Found</h1>
         {{/if}}
-
         
 
 
