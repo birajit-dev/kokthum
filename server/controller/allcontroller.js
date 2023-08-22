@@ -25,9 +25,9 @@ const YouTube = require('../model/youtube');
                 const national = await allNews.find({post_category:'national'}).sort({news_id:-1}).limit('4').lean();
 
                 //Three Segment
-                const jobs_one = await allNews.find({post_category:'jobs'}).sort({news_id:-1}).limit('3').lean();
-                const jobs_two = await allNews.find({post_category:'jobs'}).sort({news_id:-1}).skip('3').limit('3').lean();
-                const jobs_three = await allNews.find({post_category:'jobs'}).sort({news_id:-1}).skip('6').limit('3').lean();
+                const jobs_one = await allNews.find({post_category:'career'}).sort({news_id:-1}).limit('3').lean();
+                const jobs_two = await allNews.find({post_category:'career'}).sort({news_id:-1}).skip('3').limit('3').lean();
+                const jobs_three = await allNews.find({post_category:'career'}).sort({news_id:-1}).skip('6').limit('3').lean();
 
                 //Four Segment Sports
                 const sports_one = await allNews.find({post_category:'sports'}).sort({news_id:-1}).limit('3').lean();
