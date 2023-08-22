@@ -109,8 +109,10 @@ const YouTube = require('../model/youtube');
                 let nUrl = req.params.id;
                 let catD = req.params.cate;
                 const singlenews = await allNews.findOne({post_category:catD,post_url:nUrl}).lean();
-                const relatedNews = await allNews.find({post_category:catD,post_url:{$ne:nUrl}}).sort({news_id:-1}).limit('5').lean();
+                const relatedNews = await allNews.find({post_category:catD,post_url:{$ne:nUrl}}).sort({news_id:-1}).limit('4').lean();
                 const bnews = await breakingNews.find().sort({brnews_id:-1}).limit('5').lean();
+
+                const recent_news = await allNews.find({post_url:{$ne:nUrl}}).sort({news_id:-1}).limit('10').lean();
 
                 console.log(singlenews.post_name);
                 //const rNews = await allNews.find({}).sort({news_id:-1}).limit('3');
@@ -122,7 +124,8 @@ const YouTube = require('../model/youtube');
                     pageUrl: 'https://www.kokthum.com/'+singlenews.post_category+'/'+singlenews.post_url,
                     imageCard: singlenews.post_image,
                     singlenews,
-                    relatedNews, 
+                    relatedNews,
+                    recent_news,
                     bnews
                     
                 });
@@ -163,7 +166,7 @@ const YouTube = require('../model/youtube');
             try{
                 let pUrl = req.params.pageurl;
                 const pageI = await allPag.findOne({page_url:pUrl}).lean();
-                const bnews = await breakingNews.find().sort({brnews_id:-1}).limit('5').lean();
+                //const bnews = await breakingNews.find().sort({brnews_id:-1}).limit('5').lean();
 
                 //const pk = await allKey.findOne({page_category:catName});
                 res.render('pages',
@@ -174,7 +177,6 @@ const YouTube = require('../model/youtube');
                         pageUrl: 'https://www.kokthum.com/'+pageI.page_url,
                         imageCard: 'https://www.kokthum.com/logo.png',
                         pageI,
-                        bnews,
                         heading: pageI.page_title
                 });
             }

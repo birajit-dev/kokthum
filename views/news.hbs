@@ -9,14 +9,23 @@
           <div class="post-content">
             <h2 class="post-title" style="font-size:30px;">{{singlenews.post_name}}</h2>
             <div class="metas">
-              <div class="author">
-                <figure><img src="/images/kokthum.png" alt="Image" style="height: 50px;width:70%;"></figure>
-                By <a href="#">{{singlenews.author_name}}</a></div>
-              <div class="dot"></div>
-              <span class="date">{{singlenews.update_date}}</span> </div>
+
+              <div class="author-section" style="display:inline-flex;margin-top:8px;">
+                <div class="author-image"> <img src="/images/kokthum.png" alt="Author {{singlenews.author_name}}" style="width:70px"> by {{singlenews.author_name}},  </div>
+                <div class="author-name">
+                  <span> - {{singlenews.update_date}}</span>
+                </div>
+              </div>
+
+
+                  </div>
               
+
+
+
               <img src="{{singlenews.post_image}}">
-              <div class="sharethis-inline-share-buttons"></div>
+              
+              <div class="sharethis-inline-share-buttons" style="margin-top: 12px;"></div>
 
 
               
@@ -40,46 +49,31 @@
         -moz-background-clip: text;
         background-clip: text;
         color: transparent;">Recent News</h3>
-        <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
-                    <figure class="post-image"> <img src="/images/mini-thumb01.jpg" alt="Image"> </figure>
-                        <div class="post-content">
-                            <h3 class="post-title" class="fsize15">
-                                <a href="post-single.html" class="fsize15" >
-                                    ‘Threat to life,’ claims woman coach who made sexual harassment allegations against Haryana minister
-                                </a>
-                            </h3>
-                            <div class="metas">
-                                <div class="views">
-                                    <span>Gobin Debbarma</span>
-                                </div>
-                                <div class="read-time">
-                                    <i class="far fa-clock"></i> <span>27 April</span>
-                                </div>
-                            </div>
-                        </div>
-                </div>
 
-                <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
-                    <figure class="post-image"> <img src="/images/mini-thumb01.jpg" alt="Image"> </figure>
+        {{#each recent_news}}
+              <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
+                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
                         <div class="post-content">
                             <h3 class="post-title" class="fsize15">
-                                <a href="post-single.html" class="fsize15" >
-                                    ‘Threat to life,’ claims woman coach who made sexual harassment allegations against Haryana minister
+                                <a href="/{{post_category}}/{{post_url}}" class="fsize15" >
+                                    {{post_name}}
                                 </a>
                             </h3>
                             <div class="metas">
                                 <div class="views">
-                                    <span>Gobin Debbarma</span>
+                                    <span>{{author_name}}</span>
                                 </div>
                                 <div class="read-time">
-                                    <i class="far fa-clock"></i> <span>27 April</span>
+                                    <i class="far fa-clock"></i> <span>{{update_date}}</span>
                                 </div>
                             </div>
                         </div>
                 </div>
+        {{/each}}
+
         <!-- end blog-post --> 
 
-        <div class="blog-post kansas print-box" style="margin-top: 10px;padding:5px;">
+        {{!-- <div class="blog-post kansas print-box" style="margin-top: 10px;padding:5px;">
           <figure class="post-image"><a href="#" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="images/whats-new01.jpg" alt="Image" style="height: 180px;"> </figure>
           <div class="post-content">
             <h3 class="post-title custom-fsize"><a href="" class="custom-fsize">Suspect in US documents leak destroy evidence, researched mass shootings, US prosecutors say
@@ -88,7 +82,7 @@
                 -
             <span class="date"><a href="#">27 April, 2023</a></span> </div>
           </div>
-        </div>
+        </div> --}}
         <!-- end blog-post --> 
 
 
@@ -102,7 +96,36 @@
 <!-- end content-section -->
 
 
-{{>national}}
+
+<section class="content-section">
+  <div class="container print-box">
+    <div class="row">
+      <div class="col-12 print-box" style="background-color:black;">
+        <h2 class="section-title color-heading">Related News</h2>
+      </div>
+    </div>
+    <!-- end row -->
+    <div class="row justify-content-center" style="margin-top: 5px;">
+
+      {{#each relatedNews}}
+      <div class="col-lg-3 col-md-6">
+        <div class="blog-post kansas">
+          <figure class="post-image"><a href="{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:200px;"> </figure>
+          <div class="post-content">
+            <h3 class="post-title custom-fsize"><a href="{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}
+            </a></h3>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">{{author}}</span>
+                -
+            <span class="date"><a href="{{post_category}}/{{post_url}}">{{update_date}}</a></span> </div>
+          </div>
+        </div>
+        </div>
+        {{/each}}
+
+    <!-- end col-12--> 
+  </div>
+  <!-- end container --> 
+</section>
 
 
 
