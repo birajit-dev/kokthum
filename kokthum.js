@@ -7,9 +7,21 @@ const sessions = require('express-session');
 const routes = require('./server/routes/allroute');
 var bodyParser = require('body-parser');
 
+const { createProxyMiddleware } = require('http-proxy-middleware'); // Import the proxy middleware
+
 
 const oneDay = 1000 * 60 * 60 * 24;
 
+
+const proxyOptions = {
+  target: 'https://netalk.in', // The website you want to proxy
+  changeOrigin: true, // Changes the "Origin" header to the target URL
+  onProxyRes: (proxyRes, req, res) => {
+    // Modify response headers if needed
+  },
+};
+
+const proxy = createProxyMiddleware(proxyOptions);
 
 app.use(sessions({
     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
@@ -47,6 +59,7 @@ app.use(
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.use('/proxy', proxy); // This will proxy requests to "/proxy" to the target
 
 
 

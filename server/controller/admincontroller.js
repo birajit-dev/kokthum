@@ -175,6 +175,7 @@ var moment = require('moment'); // require
                 res.send('Something Went Wrong');
             }else{
                 //console.log(req.file);
+
                 const filex = req.file.originalname;
                 const nFile = ranDom +filex;
                 const urlp = "https://northeastherald.sfo3.digitaloceanspaces.com/news/";
@@ -196,7 +197,7 @@ var moment = require('moment'); // require
                     author_key: author,
                     author_name: author,
                     post_status: 1,
-                    update_date: newDate,
+                    update_date: nDate,
                 });
                 upallNews.save();
                 res.redirect('/admin/user/dashboard');
@@ -527,3 +528,4 @@ var moment = require('moment'); // require
     }
 
     
+
