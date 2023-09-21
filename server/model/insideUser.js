@@ -9,6 +9,12 @@ const roleSchema = new mongoose.Schema({
     login_id: String,
     password: String,
     author_bio: String,
+    facebook_link: String,
+    twitter_link: String,
+    instagram_link: String,
+    linkedin_link: String,
+    tag_line: String,
+    author_code: String,
     update_date: String
 });
 

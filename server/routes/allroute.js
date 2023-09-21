@@ -14,7 +14,7 @@ router.get('/:cate/:id', allController.newsPage); // NEWS PAGE
 router.get('/:cat', allController.categoryPage); // CATEGORY PAGE
 router.get('/en/pages/:pageurl', allController.pagesection);
 router.get('/topnews/headlines/tripura', allController.topNewsPage);
-router.get('/en/author/name/list', allController.pageAuthor);
+router.get('/en/author/:author', allController.pageAuthor);
 //router.get('/automation/ibns/all', adminController.ibns);
 //router.get('/a/a/a/test', adminController.testi);
 
@@ -30,7 +30,10 @@ router.get('/admin/user/addbreaking', adminController.breakingPage);
 router.get('/admin/user/listbreaking', adminController.listBreaking);
 router.get('/admin/user/editbreaking/:id', adminController.editBreaking)
 router.get('/admin/user/adduser', adminController.addUserPage);
+router.get('/admin/user/listauthor', adminController.allUsers);
+router.get('/admin/user/editauthor', adminController.editAuthorPage);
 
+router.post('/admin/user/updateauthor', adminController.updateAuthor);
 //API//
 router.post('/admin/user/authcheck', adminController.authAdmin); //AUTHENTICATION OF ADMIN PANEL LOGIN
 router.post('/admin/user/postnews', adminController.postNews); // ADD NEWS

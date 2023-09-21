@@ -476,6 +476,16 @@ var moment = require('moment'); // require
     }
 
     exports.addAuthor = async(req, res) =>{
+
+        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+function generateString(length) {
+    let result = '';
+    const charactersLength = characters.length;
+    for ( let i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
         const ab =  req.body;
         const addauthor = new UserModel({
             user_mail: ab.user_mail,
@@ -486,7 +496,15 @@ var moment = require('moment'); // require
             login_id: ab.login_id,
             password: ab.password,
             author_bio: ab.author_bio,
-            update_date: newDate
+            update_date: newDate,
+            facebook_link: ab.facebook_link,
+            twitter_link: ab.twitter_link,
+            instagram_link: ab.instagram_link,
+            linkedin_link: ab.linkedin_link,
+            tag_line: ab.tag_line,
+            author_code: generateString(6),
+            update_date: String
+
         });
         await addauthor.save();
         res.send("User Added Successfully");
@@ -527,5 +545,77 @@ var moment = require('moment'); // require
         });   
     }
 
+
+
+    exports.allUsers = async(req, res) =>{
+        adminSession=req.session;
+            if(!adminSession.userid){
+                res.redirect('/admin/user/login');
+            }
+            else{
+            const allUsers = await UserModel.find().sort({user_id:-1}).lean();
+            res.render('admin/userlist',{
+                layout:'',
+                allUsers
+            });
+            }
+    }
+    
+    exports.editAuthorPage = async(req, res) =>{
+        adminSession=req.session;
+            if(!adminSession.userid){
+                res.redirect('/admin/user/login');
+            }
+            else{
+            let pid = req.query.id;
+            const edAuthor = await UserModel.findById({_id:pid}).lean();
+            res.render('admin/editAuthor',{
+                layout:'',
+                edAuthor
+            });
+            }
+    }
+
+
+    exports.updateAuthor = async (req, res) => {
+        const updatedData = req.body;
+        console.log(updatedData.userId);
+    
+        try {        
+    
+            // Use findByIdAndUpdate to update the user by ID
+            const updatedUser = await UserModel.findByIdAndUpdate(updatedData.userId,
+                {
+                    $set: {
+                        user_mail: updatedData.user_mail,
+                        user_name: updatedData.user_name,
+                        user_role: updatedData.user_role,
+                        user_status: updatedData.user_status,
+                        user_pic: updatedData.user_pic,
+                        login_id: updatedData.login_id,
+                        password: updatedData.password,
+                        author_bio: updatedData.author_bio,
+                        update_date: new Date(),
+                        facebook_link: updatedData.facebook_link,
+                        twitter_link: updatedData.twitter_link,
+                        instagram_link: updatedData.instagram_link,
+                        linkedin_link: updatedData.linkedin_link,
+                        tag_line: updatedData.tag_line,
+                        // Note: The author_code field is not updated, as it's typically a static value for an author.
+                    },
+                },
+                { new: true } // Return the updated document
+            );
+    
+            if (!updatedUser) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+    
+            res.json({ message: 'User updated successfully', user: updatedUser });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: 'Server error' });
+        }
+    };
     
 

@@ -1,43 +1,99 @@
+<!-- end page-header -->
 <section class="content-section">
   <div class="container">
     <div class="row">
-  <h3 class="section-title" style="background-image: linear-gradient(to left, violet, indigo, orange, red);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;">Authors</h3>
-    
-    
-        
-
-
-      <div class="col-lg-12 print-list" >
-      
-        <div class="col-lg-4">
-        <div class="blog-post kansas print-box" style="margin-top:10px;padding:5px;">
-          <figure class="post-image" style="background-color: white;">
-            
-            <img src="/images/whats-new01.jpg" alt="Image" style="/* border-radius: 90%; *//* width: 40%; */padding-left: 30%;height: 140px;padding-right: 30%;border-radius: 57%;background: white;">
-            <h2 class="post-title" style="text-align:center; background:white;margin-top:10px;">Gobind Debbarma</h2>
-
-            </figure>
-          
-          <div class="post-content">
-            <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+      <div class="col-12">
+        <div class="author-box">
+          <figure>
+            <img src="{{author.user_pic}}" alt="Image">
+          </figure>
+          <div class="content">
+            <h5>{{author.user_name}}</h5>
+            <small>{{author.tag_line}}</small>
+            <ul class="social">
+              <li>
+                <a href="{{author.facebook_link}}">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{author.twitter_link}}">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{author.instagram_link}}">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{author.linkedin_link}}">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </li>
+            </ul>
+            <p>{{author.author_bio}}</p>
+            <ul class="recent-post-list">
+              <!-- end li -->
+              <!-- end li -->
+            </ul>
           </div>
+          <!-- end content -->
         </div>
-        </div>
-        <!-- end blog-post --> 
 
-        
+
+
+
+
+
+
 
 
       </div>
-      <!-- end col-8 --> 
     </div>
-    <!-- end row --> 
+  </div>
+</section>
+
+  {{!-- Tripura News & Article --}}
+ <section class="content-section">
+  <div class="container print-box">
+    <div class="row">
+      <div class="col-12 print-box" style="background-color:black;">
+        <h2 class="section-title color-heading" style="font-size:20px;text-transform: capitalize;">More From {{author.user_name}}</h2>
+      </div>
+    </div>
+    <!-- end row -->
+    <div class="row justify-content-center" style="margin-top: 5px;">
+
+
+      {{#if authorNews}}
+      {{#each authorNews}}
+      <div class="col-lg-3 col-md-6" style="margin-bottom: 10px;">
+        <div class="blog-post kansas">
+          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:180px;"> </figure>
+          <div class="post-content">
+            <h3 class="post-title custom-fsize"><a href="/{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}</a></h3>
+            <div class="metas" style="margin-top: 5px;"> <span class="date">{{update_date}}</span>
+                -
+            <span class="date"><a href="#">{{author_name}}</a></span> </div>
+          </div>
+        </div>
+      </div>
+
+        {{/each}}
+        {{else}}
+        <h3>No News Found from {{author.user_name}}</h3>
+        {{/if}}
+        
+
+
+
+      
+
+
+
+
+    <!-- end col-12--> 
   </div>
   <!-- end container --> 
 </section>
-<!-- end content-section -->
-

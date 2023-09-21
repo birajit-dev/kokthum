@@ -9,64 +9,66 @@
     {{>adminheader}}
   <div class="container mt-5">
     <h3>User Form</h3>
-    <form action="/web/post/adduser" method="post">
+    <form action="/admin/user/updateauthor" method="post">
+
+    <input type="hidden" value="{{edAuthor._id}}" name="userId" id="userId">
       <div class="mb-3">
         <label for="user-mail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="user-mail" name="user_mail" required>
+        <input type="email" class="form-control" id="user-mail" name="user_mail" value="{{edAuthor.user_mail}}" required>
       </div>
       <div class="mb-3">
         <label for="user-name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="user-name" name="user_name" required>
+        <input type="text" class="form-control" id="user-name" name="user_name" value="{{edAuthor.user_name}}" required>
       </div>
       <div class="mb-3">
         <label for="user-role" class="form-label">Role</label>
-        <input type="text" class="form-control" id="user-role" name="user_role" required>
+        <input type="text" class="form-control" id="user-role" name="user_role" required value="{{edAuthor.user_role}}">
       </div>
       <div class="mb-3">
         <label for="user-status" class="form-label">Status</label>
-        <input type="text" class="form-control" id="user-status" name="user_status" required>
+        <input type="text" class="form-control" id="user-status" name="user_status" required value="{{edAuthor.user_status}}">
       </div>
       <div class="mb-3">
         <label for="user-pic" class="form-label">Profile Picture</label>
-        <input type="text" class="form-control" id="user-pic" name="user_pic" required>
+        <input type="text" class="form-control" id="user-pic" name="user_pic" required value="{{edAuthor.user_pic}}">
       </div>
 
       <div class="mb-3">
         <label for="user-pic" class="form-label">Facebook Link</label>
-        <input type="text" class="form-control" id="user-pic" name="facebook_link" required>
+        <input type="text" class="form-control" id="user-pic" name="facebook_link" required value="{{edAuthor.facebook_link}}">
       </div>
 
       <div class="mb-3">
         <label for="user-pic" class="form-label">Twitter Link</label>
-        <input type="text" class="form-control" id="user-pic" name="twitter_link" required>
+        <input type="text" class="form-control" id="user-pic" name="twitter_link" required value="{{edAuthor.twitter_link}}">
       </div>
 
       <div class="mb-3">
         <label for="user-pic" class="form-label">Instagram Link</label>
-        <input type="text" class="form-control" id="user-pic" name="instagram_link" required>
+        <input type="text" class="form-control" id="user-pic" name="instagram_link" required value="{{edAuthor.instagram_link}}">
       </div>
 
       <div class="mb-3">
         <label for="user-pic" class="form-label">Linkedin Link</label>
-        <input type="text" class="form-control" id="user-pic" name="linkedin_link" required>
+        <input type="text" class="form-control" id="user-pic" name="linkedin_link" required value="{{edAuthor.linkedin_link}}">
       </div>
 
       <div class="mb-3">
         <label for="user-pic" class="form-label">Tag Line</label>
-        <input type="text" class="form-control" id="user-pic" name="tag_line" required>
+        <input type="text" class="form-control" id="user-pic" name="tag_line" required value="{{edAuthor.tag_line}}">
       </div>
 
       <div class="mb-3">
         <label for="login-id" class="form-label">Login ID</label>
-        <input type="text" class="form-control" id="login-id" name="login_id" required>
+        <input type="text" class="form-control" id="login-id" name="login_id" required value="{{edAuthor.login_id}}">
       </div>
       <div class="mb-3">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
+        <input type="password" class="form-control" id="password" name="password" required value="{{edAuthor.password}}">
       </div>
       <div class="mb-3">
         <label for="author-bio" class="form-label">Author Bio</label>
-        <textarea class="form-control" id="author-bio" name="author_bio" required></textarea>
+        <textarea class="form-control" id="author-bio" name="author_bio" value="{{edAuthor.author_bio}}" required>{{edAuthor.author_bio}}</textarea>
       </div>
   
       

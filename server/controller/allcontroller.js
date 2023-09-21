@@ -14,6 +14,7 @@ const pagekeyword = require('../model/pagekeyword');
 const allPag = require('../model/allpage');
 const breakingNews = require('../model/breakingnews');
 const YouTube = require('../model/youtube');
+const AuthorModel = require('../model/insideUser');
 
 
         exports.homePage = async(req, res, next) => {
@@ -330,7 +331,13 @@ const YouTube = require('../model/youtube');
 
         exports.pageAuthor = async(req, res) =>{
             try{
-                res.render('author');
+                const getAuthor  = req.params.author;
+                const author = await AuthorModel.findOne({user_name:getAuthor}).lean();
+                const authorNews = await allNews.find({author_name:getAuthor}).sort({news_id:-1}).lean();
+                res.render('author',{
+                    author,
+                    authorNews
+                })
             }
             catch{
 
