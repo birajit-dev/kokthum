@@ -14,7 +14,7 @@
         <div class="col-lg-4 col-md-4 order-lg-4" style="margin-bottom: 8px;">
           <div class="col" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
             <div class="card shadow-sm">
-              <img class="bd-placeholder-ing card-img-top" src="{{post_image}}" style="height: 200px;">
+              <img class="bd-placeholder-ing card-img-top" src="{{transformURL post_image}}" style="height: 200px;">
               <div class="card-body" style="padding:10px;">
                 <h3 class="card-text" style="font-size: 15px;">{{post_name}}</h3>
                 <div class="d-flex justify-content-between align-items-center">
@@ -65,7 +65,7 @@
           </div>
           {{#each latestnews}}
           <div class="blog-post post-style-04" style="display:flex;padding:5px;border-bottom:1px solid #d1d8e6;margin-bottom:5px">
-            <div class="blog-image" style="min-width:70px;width:0%;margin-right:10px"> <img class="img-fluid bg-overlay-black-93" src="{{post_image}}" alt="" style="width:70px;height:70px"> </div>
+            <div class="blog-image" style="min-width:70px;width:0%;margin-right:10px"> <img class="img-fluid bg-overlay-black-93" src="{{transformURL post_image}}" alt="" style="width:70px;height:70px"> </div>
             <div class="blog-post-details"> 
               <h6 class="blog-title" style="color:black;font-size:15px;font-family:'Lato,sans-serif'"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
               <div class="blog-post-meta">

@@ -22,16 +22,16 @@ const newDate = moment().format('lll');
 
 
 //Storage Key
-const spacesEndpoint = new aws.Endpoint('sfo3.digitaloceanspaces.com');
-const s3 = new aws.S3({
-    endpoint: spacesEndpoint,
-    accessKeyId:'DO00YCW72DZT2Q6WMMFF',
-    secretAccessKey:'SQyXsV6kK6GsQHEUlFTCjfQ2LyKmSnAiPqAn4MAmMrc'
-});
+const spacesEndpoint = new aws.Endpoint('blr1.digitaloceanspaces.com');
+    const s3 = new aws.S3({
+        endpoint: spacesEndpoint,
+        accessKeyId:'DO00ENCQU7FDX8ZJAMYZ',
+        secretAccessKey:'WcXhyb9n4ebPZS1uX8lSwuCCoKK8kbwDexVDGmTqC4M'
+    });
 const upload = multer({
     storage: multerS3({
     s3: s3,
-    bucket: 'northeastherald',
+    bucket: 'birdev',
     acl: 'public-read',
     key: function (request, file, cb) {
         console.log(file);
@@ -105,7 +105,7 @@ const upload = multer({
             const add = re.body;
             const filex = req.file.originalname;
             const nFile = ranDom + filex;
-            const urlp = "https://northeastherald.sfo3.digitaloceanspaces.com/news/";
+            const urlp = "https://birdev.blr1.cdn.digitaloceanspaces.com/news/";
             const aFile = urlp + nFile;        
             let addNews = new NewsModel({
                 post_name: add.post_name,

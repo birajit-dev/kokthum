@@ -14,10 +14,10 @@
       <div class="col-lg-4">
         <div class="blog-post utah">
           <figure class="post-image">
-			      <img src="{{post_image}}" style="height: 200px;">
+			      <img src="{{transformURL post_image}}" style="height: 200px;">
 			    </figure>
           <div class="post-content">
-            <h3 class="post-title"><a href="post-single.html">{{post_name}}</a></h3>
+            <h3 class="post-title"><a href="{{post_category}}/{{post_url}}">{{post_name}}</a></h3>
             <div class="metas"> <span class="date">{{update_date}}</span>
               <div class="read-time"><i class="far fa-clock"></i> <span>2 mins</span></div>
               <!-- end read-time --> 
@@ -44,9 +44,9 @@
       <div class="col-lg-4 col-md-6">
         {{#each international_two}}
         <div class="blog-post miami">
-          <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+          <figure class="post-image"> <img src="{{transformURL post_image}}" alt="Image"> </figure>
           <div class="post-content">
-            <h3 class="post-title"><a href="post-single.html">{{post_name}}</a></h3>
+            <h3 class="post-title"><a href="{{post_category}}/{{post_url}}">{{post_name}}</a></h3>
             <div class="metas">
               <div class="views"><img src="images/icon-mini-trend.png" alt="Image"></div>
               <!-- end views --> 
@@ -63,9 +63,9 @@
       <div class="col-lg-4 col-md-6">
         {{#each international_three}}
         <div class="blog-post miami">
-          <figure class="post-image"> <img src="images/mini-thumb10.jpg" alt="Image"> </figure>
+          <figure class="post-image"> <img src="{{transformURL post_image}}" alt="Image"> </figure>
           <div class="post-content">
-            <h3 class="post-title"><a href="post-single.html">Impossible milk could be coming to your cereal</a></h3>
+            <h3 class="post-title"><a href="{{post_category}}/{{post_url}}">{{post_name}}</a></h3>
             <div class="metas">
               <div class="views"><img src="images/icon-mini-trend.png" alt="Image"> <span>2.6K Views</span></div>
               <!-- end views --> 
@@ -84,9 +84,9 @@
         
         {{#each international_four}}
         <div class="blog-post miami">
-          <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+          <figure class="post-image"> <img src="{{transformURL post_image}}" alt="Image"> </figure>
           <div class="post-content">
-            <h3 class="post-title"><a href="post-single.html">{{post_name}}</a></h3>
+            <h3 class="post-title"><a href="{{post_category}}/{{post_url}}">{{post_name}}</a></h3>
             <div class="metas">
               <div class="views"><img src="images/icon-mini-trend.png" alt="Image"> <span>2.6K Views</span></div>
               <!-- end views --> 

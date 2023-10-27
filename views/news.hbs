@@ -21,7 +21,7 @@
 
 
 
-              <img src="{{singlenews.post_image}}">
+              <img src="{{transformURL singlenews.post_image}}">
               
               <div class="sharethis-inline-share-buttons" style="margin-top: 12px;"></div>
 
@@ -50,7 +50,7 @@
 
         {{#each recent_news}}
               <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px;">
-                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                    <figure class="post-image"> <img src="{{transformURL post_image}}" alt="Image"> </figure>
                         <div class="post-content">
                             <h3 class="post-title" class="fsize15">
                                 <a href="/{{post_category}}/{{post_url}}" class="fsize15" >
@@ -108,7 +108,7 @@
       {{#each relatedNews}}
       <div class="col-lg-3 col-md-6">
         <div class="blog-post kansas">
-          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:200px;"> </figure>
+          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{transformURL post_image}}" alt="Image" style="height:200px;"> </figure>
           <div class="post-content">
             <h3 class="post-title custom-fsize"><a href="/{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}
             </a></h3>

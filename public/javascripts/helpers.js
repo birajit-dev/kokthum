@@ -80,6 +80,18 @@ hbs.handlebars.registerHelper('eachData', function(context, options) {
 
   hbs.handlebars.registerHelper('dateFormat', require('handlebars-dateformat'));
 
+  const Handlebars = require('handlebars');
+
+  Handlebars.registerHelper('transformURL', function(inputURL) {
+    // Perform the necessary transformation on the input URL here
+    const transformedURL = inputURL.replace(
+      'https://northeastherald.sfo3.digitaloceanspaces.com/',
+      'https://birdev.blr1.cdn.digitaloceanspaces.com/'
+    );
+  
+    return transformedURL;
+  });
+
 
   hbs.handlebars.registerHelper('substr', function(length, context, options) {
     if ( context.length > length ) {

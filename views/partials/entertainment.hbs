@@ -10,7 +10,7 @@
         {{#each entertainment}}
         <div class="swiper-slide">
           <div class="blog-post indiana">
-            <div class="post-image" data-background="{{post_image}}"></div>
+            <div class="post-image" data-background="{{transformURL post_image}}"></div>
             <!-- post-image -->
             <div class="container">
               <div class="post-content">
@@ -51,7 +51,7 @@
             
             {{#each entertainment}}
             <div class="swiper-slide">
-              <figure><img src="{{post_image}}" alt="Image" style="height: 300px;">
+              <figure><img src="{{transformURL post_image}}" alt="Image" style="height: 300px;">
                 <figcaption> <span class="date">{{post_name}}</span> </figcaption>
               </figure>
             </div>

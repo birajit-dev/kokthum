@@ -11,7 +11,7 @@
                     {{!-- {{#if categoryAll}} --}}
         {{#each searchQuery}}
           <div class="blog-post post-style-04 mt-4">
-            <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div>
+            <div class="blog-image"> <img class="img-fluid" src="{{transformURL post_image}}" alt=""> </div>
             <div class="blog-post-details"> 
               <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
               <div class="blog-post-meta">

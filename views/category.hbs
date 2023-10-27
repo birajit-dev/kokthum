@@ -14,7 +14,7 @@
       {{#each categoryAll}}
       <div class="col-lg-3 col-md-6" style="margin-bottom: 10px;">
         <div class="blog-post kansas">
-          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height:180px;"> </figure>
+          <figure class="post-image"><a href="/{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{transformURL post_image}}" alt="Image" style="height:180px;"> </figure>
           <div class="post-content">
             <h3 class="post-title custom-fsize"><a href="/{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}</a></h3>
             <div class="metas" style="margin-top: 5px;"> <span class="date">{{update_date}}</span>
@@ -60,7 +60,7 @@
                     {{#if categoryAll}}
                         {{#each categoryAll}}
           <div class="blog-post post-style-04 mt-4">
-            <div class="blog-image"> <img class="img-fluid" src="{{post_image}}" alt=""> </div>
+            <div class="blog-image"> <img class="img-fluid" src="{{transformURL post_image}}" alt=""> </div>
             <div class="blog-post-details"> 
               <h6 class="blog-title"><a href="/{{post_category}}/{{post_url}}">{{post_name}}</a></h6>
               
@@ -85,7 +85,7 @@
           {{!-- {{#each recentNewscat}}
           <div class="col mb-2" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
             <div class="card shadow-sm">
-              <img class="bd-placeholder-ing card-img-top" src="{{post_image}}" style="height: 200px;">
+              <img class="bd-placeholder-ing card-img-top" src="{{transformURL post_image}}" style="height: 200px;">
               <div class="card-body" style="padding:10px;">
                 <h6 class="card-text" style="font-size: 15px;">{{post_name}}</h6>
                 <div class="d-flex justify-content-between align-items-center">
@@ -134,7 +134,7 @@
                             <div class="row">
                                 <div class="col-sm-4 grid-margin">
                                     <div class="rotate-img">
-                                        <img src="{{post_image}}" alt="{{post_name}}" class="img-fluid"/>
+                                        <img src="{{transformURL post_image}}" alt="{{post_name}}" class="img-fluid"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 grid-margin">
@@ -172,7 +172,7 @@
                         <div class="mb-4" onclick="window.location.href = '/{{post_category}}/{{post_url}}'">
                           <div class="rotate-img">
                             <img
-                              src="{{post_image}}"
+                              src="{{transformURL post_image}}"
                               alt="banner"
                               class="img-fluid"
                             />

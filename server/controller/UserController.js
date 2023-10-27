@@ -20,7 +20,7 @@ const newDate = moment().format('lll');
 const upload = multer({
     storage: multerS3({
     s3: s3,
-    bucket: 'northeastherald',
+    bucket: 'birdev',
     acl: 'public-read',
     key: function (request, file, cb) {
         console.log(file);
@@ -30,12 +30,14 @@ const upload = multer({
 }).single('myFile', 1);
 
 //Storage Key
-const spacesEndpoint = new aws.Endpoint('sfo3.digitaloceanspaces.com');
-const s3 = new aws.S3({
-    endpoint: spacesEndpoint,
-    accessKeyId:'DO00YCW72DZT2Q6WMMFF',
-    secretAccessKey:'SQyXsV6kK6GsQHEUlFTCjfQ2LyKmSnAiPqAn4MAmMrc'
-});
+
+
+const spacesEndpoint = new aws.Endpoint('blr1.digitaloceanspaces.com');
+    const s3 = new aws.S3({
+        endpoint: spacesEndpoint,
+        accessKeyId:'DO00ENCQU7FDX8ZJAMYZ',
+        secretAccessKey:'WcXhyb9n4ebPZS1uX8lSwuCCoKK8kbwDexVDGmTqC4M'
+    });
 
     
     //Function Declaration of Each Page

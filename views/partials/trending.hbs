@@ -10,7 +10,7 @@
 
         {{#each topnews_one}}
             <div class="blog-post">
-                <figure class="post-image"> <a href="#" class="bookmark"><i class="fal fa-bookmark"></i></a> <img src="{{post_image}}" alt="Image"> </figure>
+                <figure class="post-image"> <a href="#" class="bookmark"><i class="fal fa-bookmark"></i></a> <img src="{{transformURL post_image}}" alt="Image"> </figure>
                     <div class="post-content">
                         <h3 class="post-title fsize20" style="font-weight: 800;">
                             <a href="{{post_category}}/{{post_url}}" class="fsize20" style="text-align: justify;">
@@ -37,7 +37,7 @@
                 </div>
             {{#each topnews_two}}
                 <div class="blog-post miami dot-line" style="padding-bottom: 5px;margin-bottom:5px">
-                    <figure class="post-image"> <img src="{{post_image}}" alt="Image"> </figure>
+                    <figure class="post-image"> <img src="{{transformURL post_image}}" alt="Image"> </figure>
                         <div class="post-content">
                             <h3 class="post-title" class="fsize15">
                                 <a href="{{post_category}}/{{post_url}}" class="fsize15" >
@@ -75,7 +75,7 @@
        
        {{#each kokthum_insight}}
         <div class="blog-post kansas print-box" style="padding:5px;">
-          <figure class="post-image"><a href="{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{post_image}}" alt="Image" style="height: 180px;"> </figure>
+          <figure class="post-image"><a href="{{post_category}}/{{post_url}}" class="bookmark"><i class="fal fa-bookmark"></i></a>  <img src="{{transformURL post_image}}" alt="Image" style="height: 180px;"> </figure>
           <div class="post-content">
             <h3 class="post-title custom-fsize"><a href="{{post_category}}/{{post_url}}" class="custom-fsize">{{post_name}}
             </a></h3>
