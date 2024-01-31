@@ -18,6 +18,8 @@ router.get('/en/author/:author', allController.pageAuthor);
 //router.get('/automation/ibns/all', adminController.ibns);
 //router.get('/a/a/a/test', adminController.testi);
 
+router.get('/en/cookies/result', allController.getCookiesSearch);
+
 //ADMIN SIDE ROUTE//
 router.get('/admin/user/dashboard', adminController.adminDashboard);
 router.get('/admin/user/login', adminController.adminLogin);

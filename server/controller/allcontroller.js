@@ -80,8 +80,8 @@ const AuthorModel = require('../model/insideUser');
                 res.render('home',
                 {
                     pageTitle: 'Kokthum The News | Agartala News, Tripura News, Kokborok News, Northeast News',
-                    pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
-                    pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
+                    pageKeyword: 'kokthum news, tripura university, kokthum the news, gobin debbarma, tripura news, kokborok news, tripura info',
+                    pageDescription: 'Kokthum The News is a prominent regional news channel based in the northeast region of India. It primarily focuses on broadcasting news in three languages: Kokborok, English, and Bengali. With its headquarters located in Agartala, the capital city of Tripura, Kokthum News has established itself as a reliable source of information for the local community.',
                     pageUrl: 'https://www.kokthum.com/',
                     imageCard: 'https://www.kokthum.com/images/kokthum.png',
                     tripuranews,
@@ -147,8 +147,8 @@ const AuthorModel = require('../model/insideUser');
             res.render('category',
             {
                     pageTitle: catName.charAt(0).toUpperCase() + catName.slice(1) + ' | Kokthum The News',
-                    pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
-                    pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
+                    pageKeyword: catName.charAt(0).toUpperCase() + catName.slice(1) + ', kokthum the news, tripura university, tripura news, kokborok news, tripura info',
+                    pageDescription: 'Kokthum The News is a prominent regional news channel based in the northeast region of India. It primarily focuses on broadcasting news in three languages: Kokborok, English, and Bengali. With its headquarters located in Agartala, the capital city of Tripura, Kokthum News has established itself as a reliable source of information for the local community.',
                     pageUrl: 'https://www.kokthum.com/',
                     imageCard: 'https://www.kokthum.com/logo.png',
                     pageCategory: catName,
@@ -193,7 +193,7 @@ const AuthorModel = require('../model/insideUser');
             //const oneDay = await allNews.find({news_id:'3291'}).sort({news_id:-1}).limit('1').lean();
             const bnews = await breakingNews.find().sort({brnews_id:-1}).limit('5').lean();
             res.render('topnews',{
-                    pageTitle: 'Tripura Top News : NE Herald',
+                    pageTitle: 'Tripura Top News : Kokthum',
                     pageKeyword: 'neherald, tripura university,northeast herald, tripura news, kokborok news, tripura info',
                     pageDescription: 'Northeast Herald starts its journey from Tripura state capital city Agartala to cover the entire Northeast region of India for the latest news, news photos, and the latest photos to promote the great cultural, historical and traditional identity of the region.',
                     pageUrl: 'https://www.neherald.com/',
@@ -342,5 +342,13 @@ const AuthorModel = require('../model/insideUser');
             catch{
 
             }
+        }
+
+        exports.getCookiesSearch = async(req, res) =>{
+            const searchKeyword = req.cookies['searchKeyword'] || null;
+            // Your logic to use the searchKeyword and personalize content
+            const personalizedContent = `User searched for: ${searchKeyword}`;
+            // Send the personalized content as a response
+            res.send(personalizedContent);
         }
 

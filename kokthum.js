@@ -1,16 +1,20 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-var sassMiddleware = require('node-sass-middleware')
+//var sassMiddleware = require('node-sass-middleware')
 var path = require('path');
 const app = express();
 const sessions = require('express-session');
 const routes = require('./server/routes/allroute');
 var bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
 
 const { createProxyMiddleware } = require('http-proxy-middleware'); // Import the proxy middleware
 
 
 const oneDay = 1000 * 60 * 60 * 24;
+app.use(cookieParser());
+
 
 
 const proxyOptions = {
@@ -49,13 +53,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //console.log( __dirname + '/public/scss');
-app.use(
-  sassMiddleware ({
-      src: __dirname + '/public/scss', 
-      dest: __dirname + '/public',
-      debug: true,       
-  })
-);   
+// app.use(
+//   sassMiddleware ({
+//       src: __dirname + '/public/scss', 
+//       dest: __dirname + '/public',
+//       debug: true,       
+//   })
+// );   
 app.use(express.static(path.join(__dirname, 'public')));
 
 
