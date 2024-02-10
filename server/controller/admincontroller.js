@@ -156,33 +156,85 @@ var moment = require('moment'); // require
         });
     }
 
-    exports.postNews = async(req, res)=>{
+    // exports.postNews = async(req, res)=>{
+    //     const ranDom = getRandomInt(999999);
+    //     const upload = multer({ 
+    //         storage: multerS3({
+    //         s3: s3,
+    //         bucket: 'birdev',
+    //         acl: 'public-read',
+    //         key: function (request, file, cb) {
+    //             console.log(file);
+    //             cb(null,'news/'+ranDom + file.originalname);
+    //         }
+    //         })
+    //     }).single('myFile', 1);
+
+    //     upload(req, res, function(err){
+    //         if(err){
+    //             res.send('Something Went Wrong');
+    //         }else{
+    //             //console.log(req.file);
+
+    //             const filex = req.file.originalname;
+    //             const nFile = ranDom +filex;
+    //             const urlp = "https://birdev.blr1.cdn.digitaloceanspaces.com/news/";
+    //             const aFile = urlp +nFile;
+    //             const nDate = moment().format('lll');
+    //             const {name, url, summary, mytextarea, keyword, description, category, tags, insight, author} = req.body;
+    //             const purl = name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+    //             let upallNews = new allNews({
+    //                 post_name: name,
+    //                 post_url: url,
+    //                 post_summary: summary,
+    //                 post_description: description,
+    //                 post_content: mytextarea,
+    //                 post_keyword: keyword,
+    //                 post_category: category,
+    //                 post_image: aFile,
+    //                 meta_tags: tags,
+    //                 insight_post: insight,
+    //                 author_key: author,
+    //                 author_name: author,
+    //                 post_status: 1,
+    //                 update_date: nDate,
+    //             });
+    //             upallNews.save();
+    //             res.redirect('/admin/user/dashboard');
+    //         }
+    //     });    
+    // }
+
+
+
+
+    exports.postNews = async (req, res) => {
         const ranDom = getRandomInt(999999);
-        const upload = multer({ 
-            storage: multerS3({
-            s3: s3,
-            bucket: 'birdev',
-            acl: 'public-read',
-            key: function (request, file, cb) {
-                console.log(file);
-                cb(null,'news/'+ranDom + file.originalname);
+        
+        const storage = multer.diskStorage({
+            destination: function (req, file, cb) {
+                cb(null, 'public/uploads/news'); // Define the destination folder within the public directory
+            },
+            filename: function (req, file, cb) {
+                const ext = file.originalname.split('.').pop();
+                const fileName = ranDom + '-' + Date.now() + '.' + ext; // Generate unique file name
+                cb(null, fileName);
             }
-            })
-        }).single('myFile', 1);
-
-        upload(req, res, function(err){
-            if(err){
+        });
+    
+        const upload = multer({ storage: storage }).single('myFile', 1);
+    
+        upload(req, res, function (err) {
+            if (err) {
                 res.send('Something Went Wrong');
-            }else{
-                //console.log(req.file);
-
-                const filex = req.file.originalname;
-                const nFile = ranDom +filex;
-                const urlp = "https://birdev.blr1.cdn.digitaloceanspaces.com/news/";
-                const aFile = urlp +nFile;
+            } else {
+                const fileName = req.file.filename; // Use the generated file name
+                const urlp = "/uploads/news/"; // Define your base URL where files are stored
+                const filePath = urlp + fileName;
                 const nDate = moment().format('lll');
-                const {name, url, summary, mytextarea, keyword, description, category, tags, insight, author} = req.body;
+                const { name, url, summary, mytextarea, keyword, description, category, tags, insight, author } = req.body;
                 const purl = name.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+                
                 let upallNews = new allNews({
                     post_name: name,
                     post_url: url,
@@ -191,7 +243,7 @@ var moment = require('moment'); // require
                     post_content: mytextarea,
                     post_keyword: keyword,
                     post_category: category,
-                    post_image: aFile,
+                    post_image: filePath, // Use the file path with the file name
                     meta_tags: tags,
                     insight_post: insight,
                     author_key: author,
@@ -202,8 +254,10 @@ var moment = require('moment'); // require
                 upallNews.save();
                 res.redirect('/admin/user/dashboard');
             }
-        });    
+        });
     }
+    
+
 
     exports.editNews = async(req, res)=>{
         adminSession=req.session;
