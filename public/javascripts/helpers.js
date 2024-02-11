@@ -94,6 +94,28 @@ hbs.handlebars.registerHelper('eachData', function(context, options) {
   });
 
 
+  Handlebars.registerHelper('transformURL', function(inputURL) {
+    // Check if the inputURL contains either of the specified substrings
+    if (inputURL.includes('https://northeastherald.sfo3.digitaloceanspaces.com/')) {
+        // Replace the specified substring with the new URL fragment
+        return inputURL.replace(
+            'https://northeastherald.sfo3.digitaloceanspaces.com/',
+            '/uploads/'
+        );
+    } else if (inputURL.includes('https://birdev.blr1.cdn.digitaloceanspaces.com/')) {
+        // Replace the specified substring with the new URL fragment
+        return inputURL.replace(
+            'https://birdev.blr1.cdn.digitaloceanspaces.com/',
+            '/uploads/'
+        );
+    } else {
+        // If neither condition is met, return the original URL
+        return inputURL;
+    }
+});
+
+
+
   hbs.handlebars.registerHelper('substr', function(length, context, options) {
     if ( context.length > length ) {
      return context.substring(0, length) + "..";
