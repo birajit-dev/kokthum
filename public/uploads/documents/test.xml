@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     version="2.0">
+  <channel>
+    <atom:link href="https://www.hindustantimes.com/feeds/rss/business/rssfeed.xml"
+               rel="self"
+               type="application/rss+xml"/>
+    <title>Business News: Get Latest Business News Today along with Share Market updates and Indian Stock Market News | Hindustan Times</title>
+    <link>https://www.hindustantimes.com/business</link>
+    <description>
+      <![CDATA[
+        <p>Business News - Get latest updates on Business News Today along with India and World Economy News. Also read updates on Finance, Share Market Today, Stock Market News, IPO and Banking Sector at Hindustan Times.</p>
+      ]]>
+    </description>
+    <category>business</category>
+    <ttl>60</ttl>
+    <lastBuildDate>Sat, 31 May 2025 23:55:24 +0530</lastBuildDate>
+    <copyright>Copyright (C) 2019 HT Media Limited. All Rights Reserved.</copyright>
+    <language>en-US</language>
+    <docs>https://www.hindustantimes.com</docs>
+    <image>
+      <title>Business News: Get Latest Business News Today along with Share Market updates and Indian Stock Market News | Hindustan Times</title>
+      <link>https://www.hindustantimes.com/business</link>
+      <url>https://www.hindustantimes.com/images/app-images/ht2020/desktop.png</url>
+    </image>
+
+    <!-- Sample Item -->
+    <item>
+      <title><![CDATA[Price of commercial LPG cylinder slashed by ₹24, effective June 1]]></title>
+      <description><![CDATA[In April, the price of commercial 19 kilogram LPG gas cylinders were reduced to ₹1,762. Prices had also been slashed by ₹7 in February, 2025.]]></description>
+      <link><![CDATA[https://www.hindustantimes.com/business/price-of-commercial-lpg-cylinder-slashed-by-rs-24-effective-june-1-101748709814403.html]]></link>
+      <guid><![CDATA[https://www.hindustantimes.com/business/price-of-commercial-lpg-cylinder-slashed-by-rs-24-effective-june-1-101748709814403.html]]></guid>
+      <category>business</category>
+      <pubDate><![CDATA[Sat, 31 May 2025 22:42:17 +0530]]></pubDate>
+      <media:content 
+        height="900"
+        width="1600"
+        medium="image"
+        url="https://www.hindustantimes.com/ht-img/img/2025/05/31/1600x900/PTI04-08-2025-000156B-0_1748711165079_1748711184596.jpg"/>
+    </item>
+
+    <!-- Repeat <item> blocks for each news entry -->
+
+  </channel>
+</rss>
