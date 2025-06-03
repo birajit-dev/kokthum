@@ -28,8 +28,6 @@
     "multer-s3": "^2.10.0",
     "node-cron": "^4.1.0",
     "node-fetch": "^2.6.6",
-    "node-sass": "^8.0.0",
-    "node-sass-middleware": "^1.0.1",
     "node-schedule": "^2.1.1",
     "node-summarizer": "^1.0.7",
     "openai": "^4.91.1",
