@@ -15,6 +15,9 @@ const roleSchema = new mongoose.Schema({
     linkedin_link: String,
     tag_line: String,
     author_code: String,
+    domain_owner: String,
+    domain_key: String,
+    domain_name: String,
     update_date: String
 });
 

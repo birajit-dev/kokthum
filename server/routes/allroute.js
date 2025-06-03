@@ -1,4 +1,6 @@
 const express = require('express');
+const axios = require('axios');
+
 const { route } = require('express/lib/application');
 const router = express.Router();
 const allController = require('../controller/allcontroller');
@@ -7,6 +9,12 @@ const sessions = require('express-session');
 const ibns = require('../model/ibns');
 const WebadminView = require('../controller/WebAdminView');
 const AuthorController = require('../controller/AuthorController');
+const uploadNewsImage = require('../middleware/uploadNewsImage');
+const uploadDocument = require('../middleware/uploadDocuments');
+const uploadImage = require('../middleware/uploadImage');
+const htAIController = require('../controller/htAI');
+
+
 
 // CLIENT SIDE ROUTE//
 router.get('/', allController.homePage); // HOMEPAGE
@@ -100,8 +108,105 @@ router.get('/api/v1/allnews', allController.homeAPI);
 
 
 
+// API FOR MOBILE APP
+router.get('/api/v1/mobile/:cat', allController.CategoryPagePagination);
+
+//API FOR ADMIN DASHBOARD
+router.post('/api/v1/admin/post/news', uploadNewsImage, adminController.AddNewsAdmin);
+router.get('/api/v1/admin/newslists', adminController.AdminNewsList);
+router.get('/api/v1/admin/authorlist', adminController.authorList);
+router.get('/api/v1/admin/imageGallery', adminController.ImageGallery);
+
+router.post('/api/v1/admin/upload/document', (req, res, next) => {
+    req.uploadMiddleware = uploadDocument; // Use document middleware
+    next();
+  }, adminController.uploadDocument);
+router.get('/api/v1/admin/get/document', adminController.getDocuments);
+router.delete('/api/v1/admin/documents/:id', adminController.deleteDocument);
+router.post('/api/v1/admin/upload/image', uploadImage, adminController.uploadImage);
+router.post('/api/v1/admin/generate/content', adminController.generateContentGroq);
+router.get('/api/v1/admin/saasuser/list', adminController.saasUserList);
+router.get('/api/v1/admin/pending/content', adminController.getVerifyContent);
+router.post('/api/v2/global/user/login', adminController.saasUserAuth);
+router.put('/api/v1/admin/:id/approve', adminController.approveNews);
+router.get('/api/v1/admin/news/:id', adminController.getSingleNews);
+router.put('/api/v1/admin/news/update/:id', uploadNewsImage, adminController.updateNewsById);
+router.delete("/api/v1/admin/news/delete/:id", adminController.deleteNewsById);
+router.post('/api/v1/admin/automaticHT/news', adminController.AutoMaticNewsHindustanTimes);
+router.post('/api/v1/admin/automationIBNS/news', adminController.IBNSAutomation);
+router.get('/api/v1/admin/statusQueue/news', adminController.getQueueStatus);
+router.post('/api/v1/admin/clearJobs/news', adminController.clearFailedJobs);
+
+
+router.get("/api/v1/admin/news/migrate/migrate", adminController.MigrateOldNews);
+router.put('/api/v1/admin/author/update/:id', adminController.updateAuthorAI);
+router.delete('/api/v1/admin/author/delete/:id', adminController.deleteAuthorAI);
+router.post('/subscribe', adminController.saveSubscription);
+router.post('/send', adminController.sendNotification);
+
+
+// HT AI RSS Feed Endpoints
+router.get('/api/v1/htai/process-all', htAIController.processAllRSSFeeds);
+router.post('/api/v1/htai/init', async (req, res) => {
+  try {
+    const result = await htAIController.initRSSSystem();
+    res.json({ success: result, message: result ? 'RSS system initialized successfully' : 'Failed to initialize RSS system' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Process a specific feed by key
+router.get('/api/v1/htai/process/:feedKey', htAIController.processFeedByKey);
+
+// Get system stats
+router.get('/api/v1/htai/stats', async (req, res) => {
+  try {
+    const stats = await htAIController.getSystemStats();
+    res.json(stats);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Health check endpoint
+router.get('/api/v1/htai/health', async (req, res) => {
+  try {
+    const health = await htAIController.healthCheck();
+    res.status(health.status === 'healthy' ? 200 : 503).json(health);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// New endpoints for failed links management
+// Get all failed links
+router.get('/api/v1/htai/failed-links', htAIController.getFailedLinks);
+
+// Retry failed links
+router.post('/api/v1/htai/retry-failed', htAIController.retryFailedLinks);
+
+// Reset RSS system (clear all processed links)
+router.post('/api/v1/htai/reset', htAIController.resetRSSSystem);
+
+
+//SAAS USER
+router.post('/api/v2/global/user/create', adminController.saasUserCreate);
+router.post('/api/v2/global/user/verify', adminController.saasUserVerify);
+
+//AUTHOR LOGIN
+router.post('/api/v1/author/login', adminController.authorLogin);
+router.get('/api/v1/author/articles', adminController.getAuthorArticles);
+
+
+
+
 //ERROR//
 router.get('/error/404', allController.Error);
+
+
+
+
 
 
 

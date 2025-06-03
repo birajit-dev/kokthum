@@ -12,17 +12,18 @@
         <meta name="language" content="English">
         <meta name="author" content="Kokthum The News">
         <link rel="canonical" href="https://kokthum.com/" />
+        <link rel="manifest" href="/manifest.json">
 
 
         <!-- Required meta tags -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link href="ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144">
-        <link href="ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon" sizes="114x114">
-        <link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72">
-        <link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon">
-        <link href="ico/favicon.png" rel="shortcut icon">
+        <link href="https://kokthum.com/uploads/kokthum_favicon.ico" rel="apple-touch-icon" sizes="144x144">
+        <link href="https://kokthum.com/uploads/kokthum_favicon.ico" rel="apple-touch-icon" sizes="114x114">
+        <link href="https://kokthum.com/uploads/kokthum_favicon.ico" rel="apple-touch-icon" sizes="72x72">
+        <link href="https://kokthum.com/uploads/kokthum_favicon.ico" rel="apple-touch-icon">
+        <link href="https://kokthum.com/uploads/kokthum_favicon.ico" rel="shortcut icon">
 
         <!-- Facebook Media Card -->
         <meta property="og:locale" content="en_us" />
@@ -30,14 +31,14 @@
         <meta property="og:title" content="{{pageTitle}}" />
         <meta property="og:description" content="{{pageDescription}}" />
         <meta property="og:url" content="{{pageUrl}}" />
-        <meta property="og:image" content="{{imageCard}}">
+        <meta property="og:image" content="https://www.kokthum.com/{{imageCard}}">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="900">
         <meta property="og:site_name" content="{{pageTitle}}" />
         <meta property="og:image:alt" content="{{pageTitle}}" />
         
         <!-- Twitter Card -->
-        <meta name="twitter:image" content="{{imageCard}}">
+        <meta name="twitter:image" content="https://www.kokthum.com/{{imageCard}}">
         <meta name="twitter:description" content="{{pageDescription}}">
         <meta name="twitter:url" content="{{pageUrl}}" />
         <meta name="twitter:title" content="{{pageTitle}}" />
@@ -65,12 +66,14 @@
 
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
+/* 
+ window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(function(OneSignal) {
     OneSignal.init({
       appId: "b9340c10-e5b4-42ae-aa03-9e3d59ec0eca",
     });
   });
+*/
 </script>
 
 
@@ -102,6 +105,31 @@
         <script src="/js/swiper.min.js"></script> 
         <script src="/js/dark-mode-switch.min.js"></script> 
         <script src="/js/scripts.js"></script>
+        <script src="/js/push-not.js"></script>
+        <script src="/js/notifications.js"></script>
+        <script>
+            // Initialize push notifications when the page is ready
+            document.addEventListener('DOMContentLoaded', function() {
+                // Check if service workers are supported
+                if ('serviceWorker' in navigator && 'PushManager' in window) {
+                    // Initialize push notifications
+                    window.initPushNotifications({
+                        publicVapidKey: 'BAJumD12OcZQQbu-8PYbHXFrf7mjy5kw4oSQubYN93dojRLz3EHhNcy_yLk64ipj74rjbNELdQcDXUpKIQi6MZw',
+                        subscribeEndpoint: '/subscribe',
+                        promptDelay: 2000 // Show prompt after 2 seconds
+                    });
+
+                    // Log registration success
+                    navigator.serviceWorker.ready.then(registration => {
+                        console.log('Service Worker and Push is supported', registration);
+                    }).catch(error => {
+                        console.error('Error during service worker registration:', error);
+                    });
+                } else {
+                    console.log('Service Worker or Push is not supported');
+                }
+            });
+        </script>
 
 
     

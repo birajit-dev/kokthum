@@ -7,6 +7,7 @@ const sessions = require('express-session');
 const routes = require('./server/routes/allroute');
 var bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 
 const { createProxyMiddleware } = require('http-proxy-middleware'); // Import the proxy middleware
@@ -15,6 +16,12 @@ const { createProxyMiddleware } = require('http-proxy-middleware'); // Import th
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(cookieParser());
 
+// Enable CORS for all routes
+app.use(cors({
+  origin: '*', // Allow all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'], // Allow all methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // Allow these headers
+}));
 
 
 const proxyOptions = {
@@ -70,12 +77,34 @@ app.use('/proxy', proxy); // This will proxy requests to "/proxy" to the target
 app.use('/', routes);
 app.use('*', (req, res) => {
     res.status(404).render('404');
-  });
+});
 
-
-//TEST for Commit
+// Initialize RSS processing system
+const htAIController = require('./server/controller/htAI');
 
 // port where app is served
-app.listen(8080, () => {
-    console.log('The web server has started on port 4000');
+app.listen(8080, async () => {
+    console.log('The web server has started on port 8080');
+    
+    // Initialize the RSS processing system after server starts
+    try {
+        console.log('Initializing RSS processing system...');
+        const systemStats = await htAIController.initRSSSystem();
+        console.log('RSS system initialized with stats:', systemStats);
+    } catch (error) {
+        console.error('Failed to initialize RSS system:', error);
+    }
+});
+
+// Handle graceful shutdown
+process.on('SIGTERM', async () => {
+    console.log('SIGTERM received, shutting down gracefully');
+    await htAIController.shutdownRSSSystem();
+    process.exit(0);
+});
+
+process.on('SIGINT', async () => {
+    console.log('SIGINT received, shutting down gracefully');
+    await htAIController.shutdownRSSSystem();
+    process.exit(0);
 });

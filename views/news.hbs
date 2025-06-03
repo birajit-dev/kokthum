@@ -21,7 +21,13 @@
 
 
 
+
               <img src="{{transformURL singlenews.post_image}}">
+{{#if singlenews.image_source}}
+  <p style="text-align: center; font-style: italic;">
+    Image Source: {{singlenews.image_source}}
+  </p>
+{{/if}}
               
               <div class="sharethis-inline-share-buttons" style="margin-top: 12px;"></div>
 
